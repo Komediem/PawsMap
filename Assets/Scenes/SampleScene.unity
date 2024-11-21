@@ -533,6 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoPanel: {fileID: 618760493}
+  infoPanelIsOpen: 0
   maxSize: 16.5
   minSize: 5
   sensibility: 4
@@ -701,15 +702,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.184
+      value: 2.22
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.733
+      value: -0.34
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.09135425
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalRotation.w
@@ -742,7 +743,15 @@ PrefabInstance:
     - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: hoveredImage
       value: 
-      objectReference: {fileID: 21300000, guid: e87cb6403b1726d45a4584b0da5f0b83, type: 3}
+      objectReference: {fileID: 21300000, guid: 7c45345713c910f4f9e67de3fbb30620, type: 3}
+    - target: {fileID: 8642948573127537719, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642948573127537719, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8642948573127537719, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_Size.x
       value: 5.12
@@ -754,7 +763,7 @@ PrefabInstance:
     - target: {fileID: 8642948573127537719, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7c45345713c910f4f9e67de3fbb30620, type: 3}
+      objectReference: {fileID: 21300000, guid: e87cb6403b1726d45a4584b0da5f0b83, type: 3}
     - target: {fileID: 8642948573127537719, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
