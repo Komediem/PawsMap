@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InterestPoint : MonoBehaviour
 {
-
+    [Header("Rendering")]
+    [SerializeField] private float spawnThreshold;
 
     [Header("Basic Caracteristics")]
     private Sprite baseImage;
     private Vector3 baseScale;
+
+    [Header("DescriptionPanel")]
+    [SerializeField] private string Title;
+    [SerializeField] private Sprite PlaceImage;
+    [SerializeField] private string Description;
 
     [Header("HoveredFeedbacks")]
     [SerializeField] private Sprite hoveredImage;
@@ -25,6 +33,15 @@ public class InterestPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.Instance.currentSize <= spawnThreshold)
+        {
+            this.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else if(GameManager.Instance.currentSize > spawnThreshold)
+        {
+            this.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
         if (isHovered)
         {
             this.transform.localScale = Vector3.Lerp(transform.localScale, hoveredScale, hoveredScalingSpeed * Time.deltaTime);
@@ -62,6 +79,7 @@ public class InterestPoint : MonoBehaviour
         {
             GameManager.Instance.infoPanel.GetComponent<Animator>().SetBool("IsOpen?", true);
             GameManager.Instance.infoPanelIsOpen = true;
+            GameManager.Instance.AssignReferences(Title, Description, PlaceImage);
         }
     }
 }

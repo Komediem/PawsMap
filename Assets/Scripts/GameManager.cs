@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     private Camera cam;
-    private float currentSize;
+    public float currentSize;
 
     [Header("Info Panel")]
     public GameObject infoPanel;
+    [SerializeField] private TextMeshProUGUI title;
+    [SerializeField] private TextMeshProUGUI description;
+    [SerializeField] private Image enviro;
     public bool infoPanelIsOpen;
 
     [Header("Camera Parameters")]
@@ -56,5 +61,12 @@ public class GameManager : MonoBehaviour
             cam.orthographicSize -= v * sensibility;
             currentSize = cam.orthographicSize;
         }
+    }
+
+    public void AssignReferences(string titleToSet, string descriptionToSet, Sprite imageToSet)
+    {
+        title.text = titleToSet;
+        description.text = descriptionToSet;
+        enviro.sprite = imageToSet;
     }
 }
