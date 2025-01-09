@@ -54,14 +54,12 @@ public class InterestPoint : MonoBehaviour
     {
         if(GameManager.Instance.infoPanelIsOpen)
         {
-            GameManager.Instance.infoPanel.GetComponent<Animator>().SetBool("IsOpen?", false);
-            GameManager.Instance.infoPanelIsOpen = false;
+            GameManager.Instance.CloseInfoPanel();
         }
 
         else
         {
-            GameManager.Instance.infoPanel.GetComponent<Animator>().SetBool("IsOpen?", true);
-            GameManager.Instance.infoPanelIsOpen = true;
+            GameManager.Instance.OpenInfoPanel();
         }
     }
 }
