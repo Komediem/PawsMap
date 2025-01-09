@@ -14,9 +14,9 @@ public class InterestPoint : MonoBehaviour
     private Vector3 baseScale;
 
     [Header("DescriptionPanel")]
-    [SerializeField] private string Title;
-    [SerializeField] private Sprite PlaceImage;
-    [SerializeField] private string Description;
+    [SerializeField] public string Title;
+    [SerializeField] public Sprite PlaceImage;
+    [SerializeField] public string Description;
 
     [Header("HoveredFeedbacks")]
     [SerializeField] private Sprite hoveredImage;
@@ -71,15 +71,12 @@ public class InterestPoint : MonoBehaviour
     {
         if(GameManager.Instance.infoPanelIsOpen)
         {
-            GameManager.Instance.infoPanel.GetComponent<Animator>().SetBool("IsOpen?", false);
-            GameManager.Instance.infoPanelIsOpen = false;
+            GameManager.Instance.CloseInfoPanel();
         }
 
         else
         {
-            GameManager.Instance.infoPanel.GetComponent<Animator>().SetBool("IsOpen?", true);
-            GameManager.Instance.infoPanelIsOpen = true;
-            GameManager.Instance.AssignReferences(Title, Description, PlaceImage);
+            GameManager.Instance.OpenInfoPanel(Title, Description, PlaceImage);
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,11 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SpriteRenderer currentMap;
 
     private Camera cam;
-    private float currentSize;
+    public float currentSize;
 
     [Header("Info Panel")]
     public GameObject infoPanel;
+    public GameObject panelTitle;
+    public GameObject panelDescription;
     public GameObject blackBackground;
+    public Button placeImage;
     public bool infoPanelIsOpen;
 
     Vector3 oldMousePos = Vector3.zero;
@@ -82,12 +87,17 @@ public class GameManager : MonoBehaviour
         oldMousePos = mousePos;
     }
 
-    public void OpenInfoPanel()
+    public void OpenInfoPanel(string title, string description, Sprite image)
     {
         infoPanel.GetComponent<Animator>().SetBool("IsOpen?", true);
         blackBackground.SetActive(true);
-        blackBackground.GetComponent<Animator>().SetBool("IsOpen?", true);
+        //blackBackground.GetComponent<Animator>().SetBool("IsOpen?", true);
         infoPanelIsOpen = true;
+        placeImage.gameObject.SetActive(true);
+
+        panelTitle.GetComponent<TextMeshPro>().text = title;
+        panelDescription.GetComponent<TextMeshPro>().text = description;
+        placeImage.image.sprite = image;
     }
 
     public void CloseInfoPanel()
@@ -95,5 +105,6 @@ public class GameManager : MonoBehaviour
         infoPanel.GetComponent<Animator>().SetBool("IsOpen?", false);
         blackBackground.SetActive(false);
         infoPanelIsOpen = false;
+        placeImage.gameObject.SetActive(false);
     }
 }

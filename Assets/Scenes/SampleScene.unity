@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &71578262
 RectTransform:
   m_ObjectHideFlags: 0
@@ -602,7 +602,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1008,15 +1008,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7d98734b0a4cc4389c7fd24e960034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMap: {fileID: 1624959332}
   currentSize: 0
   infoPanel: {fileID: 618760493}
-  title: {fileID: 1195799072}
-  description: {fileID: 1439170182}
-  enviro: {fileID: 71578264}
+  panelTitle: {fileID: 1195799070}
+  panelDescription: {fileID: 1439170180}
+  blackBackground: {fileID: 380121601}
+  placeImage: {fileID: 71578263}
   infoPanelIsOpen: 0
-  maxSize: 20
+  maxSize: 16.5
   minSize: 5
-  sensibility: 4
+  sensibilityMin: 0.005
+  sensibilityMax: 0.02
+  sensibilityScrollWheel: 4
+  zoomSmoothTime: 0.1
+  moveSmoothTime: 1
 --- !u!4 &1363033063
 Transform:
   m_ObjectHideFlags: 0
@@ -1210,7 +1216,7 @@ GameObject:
   - component: {fileID: 1624959333}
   - component: {fileID: 1624959332}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
