@@ -13,6 +13,8 @@ public class InterestPoint : MonoBehaviour
     private Sprite baseImage;
     private Vector3 baseScale;
 
+    [SerializeField] public InterestPointDatas interestPointDatas;
+
     [Header("DescriptionPanel")]
     [SerializeField] public string Title;
     [SerializeField] public Sprite PlaceImage;

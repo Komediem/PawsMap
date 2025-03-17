@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject panelDescription;
     public GameObject blackBackground;
     public Button placeImage;
+    public Button quitButton;
     public bool infoPanelIsOpen;
 
     Vector3 oldMousePos = Vector3.zero;
@@ -94,9 +95,10 @@ public class GameManager : MonoBehaviour
         //blackBackground.GetComponent<Animator>().SetBool("IsOpen?", true);
         infoPanelIsOpen = true;
         placeImage.gameObject.SetActive(true);
+        quitButton.gameObject.SetActive(true);
 
-        panelTitle.GetComponent<TextMeshPro>().text = title;
-        panelDescription.GetComponent<TextMeshPro>().text = description;
+        panelTitle.GetComponent<TextMeshProUGUI>().text = title;
+        panelDescription.GetComponent<TextMeshProUGUI>().text = description;
         placeImage.image.sprite = image;
     }
 
@@ -106,5 +108,6 @@ public class GameManager : MonoBehaviour
         blackBackground.SetActive(false);
         infoPanelIsOpen = false;
         placeImage.gameObject.SetActive(false);
+        quitButton.gameObject.SetActive(false);
     }
 }
