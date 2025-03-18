@@ -1,5 +1,4 @@
-using Microsoft.Unity.VisualStudio.Editor;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +6,10 @@ using UnityEngine;
 public class InterestPointDatas : ScriptableObject
 {
     public string title;
-    public List<InterestPointMultipleDatas> interestPointDatas;
+    public List<InterestPointMultipleDatas> interestPointMultipleDatas;
 }
 
+[Serializable]
 public struct InterestPointMultipleDatas
 {
     public Sprite image;

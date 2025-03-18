@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cde9223ed5014459b32ae1934989ab, type: 3}
+  m_Name: Les plages froides
+  m_EditorClassIdentifier: 
+  title: LES PLAGES FROIDES
+  interestPointMultipleDatas:
+  - image: {fileID: 21300000, guid: e251ba2b163c05a43b9e43b1af331555, type: 3}
+    imageDescription: Image 1

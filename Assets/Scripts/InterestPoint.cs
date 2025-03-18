@@ -1,24 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InterestPoint : MonoBehaviour
 {
     [Header("Rendering")]
     [SerializeField] private float spawnThreshold;
+    [SerializeField] private GameObject pointName;
 
-    [Header("Basic Caracteristics")]
+    [Header("Basic Characteristics")]
     private Sprite baseImage;
     private Vector3 baseScale;
 
     [SerializeField] public InterestPointDatas interestPointDatas;
-
-    [Header("DescriptionPanel")]
-    [SerializeField] public string Title;
-    [SerializeField] public Sprite PlaceImage;
-    [SerializeField] public string Description;
 
     [Header("HoveredFeedbacks")]
     [SerializeField] private Sprite hoveredImage;
@@ -30,6 +23,9 @@ public class InterestPoint : MonoBehaviour
     {
         baseImage = this.GetComponent<SpriteRenderer>().sprite;
         baseScale = this.gameObject.transform.localScale;
+
+        pointName.GetComponent<TextMeshPro>().text = interestPointDatas.title;
+        pointName.SetActive(false);
     }
 
     // Update is called once per frame
@@ -60,6 +56,7 @@ public class InterestPoint : MonoBehaviour
         //print("Hovered");
         this.GetComponent<SpriteRenderer>().sprite = hoveredImage;
         isHovered = true;
+        pointName.SetActive(true);
     }
 
     public void ResetImage()
@@ -67,6 +64,7 @@ public class InterestPoint : MonoBehaviour
         //print("Reset");
         this.GetComponent<SpriteRenderer>().sprite = baseImage;
         isHovered = false;
+        pointName.SetActive(false);
     }
 
     public void Click()
@@ -78,7 +76,7 @@ public class InterestPoint : MonoBehaviour
 
         else
         {
-            GameManager.Instance.OpenInfoPanel(Title, Description, PlaceImage);
+            GameManager.Instance.OpenInfoPanel(interestPointDatas);
         }
     }
 }

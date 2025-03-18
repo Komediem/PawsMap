@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -14,15 +10,20 @@ public class GameManager : MonoBehaviour
 
     private Camera cam;
     public float currentSize;
+    public float mapBorder;
+    public AnimationCurve SmoothBorder;
 
     [Header("Info Panel")]
     public GameObject infoPanel;
     public GameObject panelTitle;
     public GameObject panelDescription;
     public GameObject blackBackground;
+    public GameObject imageHolder;
     public Button placeImage;
     public Button quitButton;
     public bool infoPanelIsOpen;
+    private int currentImage;
+    private InterestPointDatas currentInterestPoint;
 
     Vector3 oldMousePos = Vector3.zero;
     Vector3 newTargetPos = Vector3.zero;
@@ -68,9 +69,40 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            Vector3 deltaPos = mousePos - oldMousePos;
+            if(infoPanelIsOpen)
+            {
+                CloseInfoPanel();
+            }
 
-            newScreenPos = cam.transform.position + new Vector3(-deltaPos.x * currentSensibility, -deltaPos.y * currentSensibility, 0f);
+            else
+            {
+                Vector3 deltaPos = mousePos - oldMousePos;
+
+                Vector3 tempPos = cam.transform.position + new Vector3(-deltaPos.x * currentSensibility, -deltaPos.y * currentSensibility, 0f);
+
+                float borderMoveAlphaX = 1;
+                if (mapBorder != 0)
+                {
+                    //Get Size
+                    borderMoveAlphaX = ((currentMap.bounds.max.x - cam.orthographicSize * cam.aspect) - (currentMap.bounds.min.x + cam.orthographicSize * cam.aspect));
+
+
+                    borderMoveAlphaX /= 2;
+                    //Get the max distance
+                    float maxDist = Mathf.Abs(borderMoveAlphaX - mapBorder);
+
+
+                    borderMoveAlphaX = Mathf.Abs(tempPos.x - borderMoveAlphaX);
+                    //Debug.Log(borderMoveAlphaX);
+
+                    borderMoveAlphaX = SmoothBorder.Evaluate(borderMoveAlphaX);
+
+                    borderMoveAlphaX = 1;
+
+                }
+
+                newScreenPos = cam.transform.position + new Vector3(-deltaPos.x * currentSensibility * borderMoveAlphaX, -deltaPos.y * currentSensibility, 0f);
+            }
         }
 
         var v = Input.GetAxis("Mouse ScrollWheel");
@@ -88,26 +120,62 @@ public class GameManager : MonoBehaviour
         oldMousePos = mousePos;
     }
 
-    public void OpenInfoPanel(string title, string description, Sprite image)
+    public void OpenInfoPanel(InterestPointDatas interestPointDatasValue)
     {
         infoPanel.GetComponent<Animator>().SetBool("IsOpen?", true);
         blackBackground.SetActive(true);
         //blackBackground.GetComponent<Animator>().SetBool("IsOpen?", true);
         infoPanelIsOpen = true;
-        placeImage.gameObject.SetActive(true);
+        imageHolder.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
+        AssignDatasInterestPoint(interestPointDatasValue);
+    }
 
-        panelTitle.GetComponent<TextMeshProUGUI>().text = title;
-        panelDescription.GetComponent<TextMeshProUGUI>().text = description;
-        placeImage.image.sprite = image;
+    public void AssignDatasInterestPoint(InterestPointDatas interestPointDatasValue)
+    {
+        //Set Datas to interest point clicked
+        currentInterestPoint = interestPointDatasValue;
+        panelTitle.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.title;
+        panelDescription.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.interestPointMultipleDatas[currentImage].imageDescription;
+        placeImage.image.sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage].image;
+    }
+
+    public void SlideNextRight()
+    {
+        if(currentImage < currentInterestPoint.interestPointMultipleDatas.Count - 1)
+        {
+            currentImage += 1;
+        }
+        else
+        {
+            currentImage = 0;
+        }
+
+        AssignDatasInterestPoint(currentInterestPoint);
+    }
+
+    public void SlideNextLeft()
+    {
+        if(currentImage > 0)
+        {
+            currentImage -= 1;
+        }
+        else
+        {
+            currentImage = currentInterestPoint.interestPointMultipleDatas.Count - 1;
+        }
+
+        AssignDatasInterestPoint(currentInterestPoint);
     }
 
     public void CloseInfoPanel()
     {
+        currentInterestPoint = null;
         infoPanel.GetComponent<Animator>().SetBool("IsOpen?", false);
         blackBackground.SetActive(false);
         infoPanelIsOpen = false;
-        placeImage.gameObject.SetActive(false);
+        imageHolder.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
+        currentImage = 0;
     }
 }
