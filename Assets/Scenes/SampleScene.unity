@@ -158,7 +158,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 70, y: -33.4964}
-  m_SizeDelta: {x: 700, y: 350}
+  m_SizeDelta: {x: 600, y: 350}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &71578263
 MonoBehaviour:
@@ -743,7 +743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 89.81726, y: -51}
+  m_AnchoredPosition: {x: 89.81714, y: -51}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &449857970
@@ -2074,7 +2074,11 @@ MonoBehaviour:
   panelDescription: {fileID: 1439170180}
   blackBackground: {fileID: 380121601}
   imageHolder: {fileID: 730837530}
-  detailedImage: {fileID: 1466330204}
+  detailedImageBackground: {fileID: 1466330204}
+  detailedImage: {fileID: 2117713889}
+  changeImageArrows:
+  - {fileID: 1724271899}
+  - {fileID: 569974899}
   placeImage: {fileID: 71578263}
   quitButton: {fileID: 449857970}
   infoPanelIsOpen: 0
@@ -2381,7 +2385,7 @@ GameObject:
   - component: {fileID: 1466330207}
   - component: {fileID: 1466330206}
   m_Layer: 0
-  m_Name: DetailedImage
+  m_Name: DetailedImageBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2405,7 +2409,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -500, y: -200}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466330206
 MonoBehaviour:
@@ -2420,7 +2424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2711,7 +2715,7 @@ GameObject:
   - component: {fileID: 2117713892}
   - component: {fileID: 2117713891}
   m_Layer: 0
-  m_Name: Background
+  m_Name: DetailedImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2733,8 +2737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: -1.3692932}
-  m_SizeDelta: {x: 514.8563, y: 221.8263}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -500, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2117713891
 MonoBehaviour:
@@ -2749,7 +2753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

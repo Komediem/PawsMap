@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +20,9 @@ public class GameManager : MonoBehaviour
     public GameObject panelDescription;
     public GameObject blackBackground;
     public GameObject imageHolder;
+    public GameObject detailedImageBackground;
     public GameObject detailedImage;
+    public List<GameObject> changeImageArrows = new();
     public Button placeImage;
     public Button quitButton;
     public bool infoPanelIsOpen;
@@ -131,6 +134,23 @@ public class GameManager : MonoBehaviour
         imageHolder.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
         AssignDatasInterestPoint(interestPointDatasValue);
+
+        if(interestPointDatasValue.interestPointMultipleDatas.Count > 1)
+        {
+            foreach(var arrows in changeImageArrows)
+            {
+                arrows.SetActive(true);
+                print(interestPointDatasValue.interestPointMultipleDatas.Count);
+            }
+        }
+        else
+        {
+            foreach (var arrows in changeImageArrows)
+            {
+                arrows.SetActive(false);
+                print(interestPointDatasValue.interestPointMultipleDatas.Count);
+            }
+        }
     }
 
     public void AssignDatasInterestPoint(InterestPointDatas interestPointDatasValue)
@@ -174,7 +194,7 @@ public class GameManager : MonoBehaviour
     {
         if (isOnDetailedImage)
         {
-            detailedImage.SetActive(false);
+            detailedImageBackground.SetActive(false);
             isOnDetailedImage = false;
         }
         else
@@ -192,7 +212,7 @@ public class GameManager : MonoBehaviour
     public void OpenDetailedImage()
     {
         isOnDetailedImage = true;
-        detailedImage.SetActive(true);
+        detailedImageBackground.SetActive(true);
         detailedImage.GetComponent<Image>().sprite = currentInterestPoint.interestPointMultipleDatas[currentImage].image;
     }
 }
