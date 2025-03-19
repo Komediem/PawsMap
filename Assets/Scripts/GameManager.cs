@@ -19,9 +19,11 @@ public class GameManager : MonoBehaviour
     public GameObject panelDescription;
     public GameObject blackBackground;
     public GameObject imageHolder;
+    public GameObject detailedImage;
     public Button placeImage;
     public Button quitButton;
     public bool infoPanelIsOpen;
+    public bool isOnDetailedImage;
     private int currentImage;
     private InterestPointDatas currentInterestPoint;
 
@@ -170,12 +172,27 @@ public class GameManager : MonoBehaviour
 
     public void CloseInfoPanel()
     {
-        currentInterestPoint = null;
-        infoPanel.GetComponent<Animator>().SetBool("IsOpen?", false);
-        blackBackground.SetActive(false);
-        infoPanelIsOpen = false;
-        imageHolder.gameObject.SetActive(false);
-        quitButton.gameObject.SetActive(false);
-        currentImage = 0;
+        if (isOnDetailedImage)
+        {
+            detailedImage.SetActive(false);
+            isOnDetailedImage = false;
+        }
+        else
+        {
+            currentInterestPoint = null;
+            infoPanel.GetComponent<Animator>().SetBool("IsOpen?", false);
+            blackBackground.SetActive(false);
+            infoPanelIsOpen = false;
+            imageHolder.gameObject.SetActive(false);
+            quitButton.gameObject.SetActive(false);
+            currentImage = 0;
+        }
+    }
+
+    public void OpenDetailedImage()
+    {
+        isOnDetailedImage = true;
+        detailedImage.SetActive(true);
+        detailedImage.GetComponent<Image>().sprite = currentInterestPoint.interestPointMultipleDatas[currentImage].image;
     }
 }
