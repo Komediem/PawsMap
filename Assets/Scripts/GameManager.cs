@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
         isOnDetailedImage = true;
         detailedImageBackground.SetActive(true);
         detailedImage.GetComponent<Image>().sprite = currentInterestPoint.interestPointMultipleDatas[currentImage].image;
-        float ratio = currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.width/ currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.height;
-        detailedImage.transform.localScale = new Vector3(ratio,1, 1);
+        float ratio = currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.width;
+        detailedImage.transform.localScale = new Vector3(1, ratio, 1);
     }
 }
