@@ -6,7 +6,15 @@ using UnityEngine;
 public class InterestPointDatas : ScriptableObject
 {
     public string title;
+    public InterestPointTypes interestPointType;
     public List<InterestPointMultipleDatas> interestPointMultipleDatas;
+}
+
+public enum InterestPointTypes
+{
+    place,
+    creature,
+    flora
 }
 
 [Serializable]

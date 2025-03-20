@@ -14,7 +14,6 @@ public class InterestPoint : MonoBehaviour
     [SerializeField] public InterestPointDatas interestPointDatas;
 
     [Header("HoveredFeedbacks")]
-    [SerializeField] private Sprite hoveredImage;
     [SerializeField] private Vector3 hoveredScale;
     [SerializeField] private float hoveredScalingSpeed;
     private bool isHovered;
@@ -22,11 +21,15 @@ public class InterestPoint : MonoBehaviour
 
     void Start()
     {
-        baseImage = this.GetComponent<SpriteRenderer>().sprite;
+        //baseImage = this.GetComponent<SpriteRenderer>().sprite;
         baseScale = this.gameObject.transform.localScale;
 
         pointName.GetComponent<TextMeshPro>().text = interestPointDatas.title;
         pointName.SetActive(false);
+
+        IconInterestPoint.Instance.SetBaseImage(interestPointDatas.interestPointType);
+        baseImage = IconInterestPoint.Instance.currentIcon;
+        this.GetComponent<SpriteRenderer>().sprite = baseImage;
     }
 
     // Update is called once per frame
@@ -57,16 +60,20 @@ public class InterestPoint : MonoBehaviour
 
     public void Hovered()
     {
-        //print("Hovered");
-        this.GetComponent<SpriteRenderer>().sprite = hoveredImage;
+        //Feedback hovering
+        this.GetComponent<SpriteRenderer>().color = Color.green;
+
+        //Utils
         isHovered = true;
         pointName.SetActive(isVisible);
     }
 
     public void ResetImage()
     {
-        //print("Reset");
-        this.GetComponent<SpriteRenderer>().sprite = baseImage;
+        //Feedback reseting image
+        this.GetComponent<SpriteRenderer>().color = Color.white;
+
+        //Utils
         isHovered = false;
         pointName.SetActive(false);
     }

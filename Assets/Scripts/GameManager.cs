@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public float mapBorder;
     public AnimationCurve SmoothBorder;
 
+    #region Info Panel
     [Header("Info Panel")]
     public GameObject infoPanel;
     public GameObject panelTitle;
@@ -29,17 +30,22 @@ public class GameManager : MonoBehaviour
     public bool isOnDetailedImage;
     private int currentImage;
     private InterestPointDatas currentInterestPoint;
+    #endregion
 
+    #region movement and velocities
     Vector3 oldMousePos = Vector3.zero;
     Vector3 newTargetPos = Vector3.zero;
-
     private float zoomVel = 0;
     private Vector3 moveVel = Vector3.zero;
+    #endregion
 
+    #region Camera Parameters
     [Header("Camera Parameters")]
     [SerializeField] private float maxSize;
     [SerializeField] private float minSize;
+    #endregion
 
+    #region Sensibility and Controls
     [Header("Sensibility And Controls")]
     [SerializeField] private float sensibilityMin;
     [SerializeField] private float sensibilityMax;
@@ -47,6 +53,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float sensibilityScrollWheel; 
     [SerializeField] private float zoomSmoothTime;
     [SerializeField] private float moveSmoothTime;
+    #endregion
 
     private void Awake()
     {
