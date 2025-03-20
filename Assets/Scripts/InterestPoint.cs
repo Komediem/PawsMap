@@ -18,6 +18,7 @@ public class InterestPoint : MonoBehaviour
     [SerializeField] private Vector3 hoveredScale;
     [SerializeField] private float hoveredScalingSpeed;
     private bool isHovered;
+    private bool isVisible;
 
     void Start()
     {
@@ -33,10 +34,13 @@ public class InterestPoint : MonoBehaviour
     {
         if(GameManager.Instance.currentSize <= spawnThreshold)
         {
+            isVisible = true;
             this.GetComponent<SpriteRenderer>().enabled = true;
         }
         else if(GameManager.Instance.currentSize > spawnThreshold)
         {
+            isVisible = false;
+            pointName.SetActive(false);
             this.GetComponent<SpriteRenderer>().enabled = false;
         }
 
@@ -56,7 +60,7 @@ public class InterestPoint : MonoBehaviour
         //print("Hovered");
         this.GetComponent<SpriteRenderer>().sprite = hoveredImage;
         isHovered = true;
-        pointName.SetActive(true);
+        pointName.SetActive(isVisible);
     }
 
     public void ResetImage()
@@ -69,14 +73,18 @@ public class InterestPoint : MonoBehaviour
 
     public void Click()
     {
-        if(GameManager.Instance.infoPanelIsOpen)
+        if(isVisible)
         {
-            GameManager.Instance.CloseInfoPanel();
-        }
+            if (GameManager.Instance.infoPanelIsOpen)
+            {
+                GameManager.Instance.CloseInfoPanel();
+            }
 
-        else
-        {
-            GameManager.Instance.OpenInfoPanel(interestPointDatas);
+            else
+            {
+                GameManager.Instance.OpenInfoPanel(interestPointDatas);
+            }
+
         }
     }
 }

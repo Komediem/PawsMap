@@ -151,6 +151,7 @@ public class GameManager : MonoBehaviour
                 print(interestPointDatasValue.interestPointMultipleDatas.Count);
             }
         }
+
     }
 
     public void AssignDatasInterestPoint(InterestPointDatas interestPointDatasValue)
@@ -160,18 +161,15 @@ public class GameManager : MonoBehaviour
         panelTitle.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.title;
         panelDescription.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.interestPointMultipleDatas[currentImage].imageDescription;
         placeImage.image.sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage].image;
+
+
+        float ratio = currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.width;
+        placeImage.transform.localScale = new Vector3(1, ratio, 1);
     }
 
     public void SlideNextRight()
     {
-        if(currentImage < currentInterestPoint.interestPointMultipleDatas.Count - 1)
-        {
-            currentImage += 1;
-        }
-        else
-        {
-            currentImage = 0;
-        }
+        currentImage = (currentImage + 1) % currentInterestPoint.interestPointMultipleDatas.Count;
 
         AssignDatasInterestPoint(currentInterestPoint);
     }
@@ -214,5 +212,7 @@ public class GameManager : MonoBehaviour
         isOnDetailedImage = true;
         detailedImageBackground.SetActive(true);
         detailedImage.GetComponent<Image>().sprite = currentInterestPoint.interestPointMultipleDatas[currentImage].image;
+        float ratio = currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.width/ currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.height;
+        detailedImage.transform.localScale = new Vector3(ratio,1, 1);
     }
 }
