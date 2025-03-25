@@ -344,10 +344,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7c45345713c910f4f9e67de3fbb30620, type: 3}
     - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
-      propertyPath: spawnThreshold
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: interestPointDatas
       value: 
       objectReference: {fileID: 11400000, guid: 7a1723d2b7e76a444aaa97d4be1c9a63, type: 2}
@@ -583,10 +579,6 @@ PrefabInstance:
       propertyPath: hoveredImage
       value: 
       objectReference: {fileID: 21300000, guid: 7c45345713c910f4f9e67de3fbb30620, type: 3}
-    - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
-      propertyPath: spawnThreshold
-      value: 18
-      objectReference: {fileID: 0}
     - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: interestPointDatas
       value: 
@@ -930,10 +922,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7c45345713c910f4f9e67de3fbb30620, type: 3}
     - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
-      propertyPath: spawnThreshold
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: interestPointDatas
       value: 
       objectReference: {fileID: 11400000, guid: 1085e159970021d4babeb4283936a691, type: 2}
@@ -1036,7 +1024,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 23
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1642,10 +1630,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7c45345713c910f4f9e67de3fbb30620, type: 3}
     - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
-      propertyPath: spawnThreshold
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: interestPointDatas
       value: 
       objectReference: {fileID: 11400000, guid: d6a83ff702e059f4789b2c194ecceb3a, type: 2}
@@ -1989,10 +1973,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7c45345713c910f4f9e67de3fbb30620, type: 3}
     - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
-      propertyPath: spawnThreshold
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: interestPointDatas
       value: 
       objectReference: {fileID: 11400000, guid: 13f2a3c24a228324dafbe8196f8a74c8, type: 2}
@@ -2225,6 +2205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363033063}
   - component: {fileID: 1363033062}
+  - component: {fileID: 1363033064}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2285,7 +2266,7 @@ MonoBehaviour:
   quitButton: {fileID: 449857970}
   infoPanelIsOpen: 0
   isOnDetailedImage: 0
-  maxSize: 17
+  maxSize: 23
   minSize: 5
   sensibilityMin: 0.005
   sensibilityMax: 0.02
@@ -2307,6 +2288,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1363033064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363033061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba29127030ab104181e9b2a915ed575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconPlace: {fileID: 21300000, guid: e87cb6403b1726d45a4584b0da5f0b83, type: 3}
+  iconCreature: {fileID: 21300000, guid: df47ad16026b8114ba67355a66a728b3, type: 3}
+  iconFlora: {fileID: 21300000, guid: 00a7014d2bf73c14085c92a6a5966d61, type: 3}
+  currentIcon: {fileID: 0}
 --- !u!1 &1422313355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,7 +2743,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8de364aebedbe164790e4c282865917b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b932a04ddb291304594d553de16ae535, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3068,10 +3065,6 @@ PrefabInstance:
       propertyPath: hoveredImage
       value: 
       objectReference: {fileID: 21300000, guid: 7c45345713c910f4f9e67de3fbb30620, type: 3}
-    - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
-      propertyPath: spawnThreshold
-      value: 17
-      objectReference: {fileID: 0}
     - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: interestPointDatas
       value: 
