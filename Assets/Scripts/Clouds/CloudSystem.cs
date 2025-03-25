@@ -15,17 +15,11 @@ public class CloudSystem : MonoBehaviour
         StartCoroutine(TimerForSpawn());
     }
 
-    void Update()
-    {
-
-    }
-
     IEnumerator TimerForSpawn()
     {
         yield return new WaitForSeconds(2);
         SpawnCloud();
     }
-
 
     void SpawnCloud()
     {
@@ -42,7 +36,7 @@ public class CloudSystem : MonoBehaviour
             //Spawn Cloud
             GameObject CloudObject = Instantiate(CloudPrefab);
             CloudObject.transform.position = new Vector3(RandomPosition.x, RandomPosition.y, 0);
-            CloudObject.GetComponent<CloudMovement>().test();
+            CloudObject.GetComponent<CloudMovement>().Objective = new Vector2(-RandomPosition.x, RandomPosition.y);
 
 
             //Restart Coroutine
@@ -59,7 +53,7 @@ public class CloudSystem : MonoBehaviour
             //Spawn Cloud
             GameObject CloudObject = Instantiate(CloudPrefab);
             CloudObject.transform.position = new Vector3(RandomPosition.x, RandomPosition.y, 0);
-            CloudObject.GetComponent<CloudMovement>().test();
+            CloudObject.GetComponent<CloudMovement>().Objective = new Vector2(Mathf.Abs(RandomPosition.x), RandomPosition.y);
 
 
             //Restart Coroutine
@@ -73,10 +67,5 @@ public class CloudSystem : MonoBehaviour
             Random.Range(SpawnCollider.bounds.min.x, SpawnCollider.bounds.max.x),
             Random.Range(SpawnCollider.bounds.min.y, SpawnCollider.bounds.max.y)
             );
-    }
-
-    void CloudMove()
-    {
-        
     }
 }

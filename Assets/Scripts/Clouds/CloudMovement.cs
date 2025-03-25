@@ -9,24 +9,24 @@ public class CloudMovement : MonoBehaviour
 
     [SerializeField] private float MinSpeed;
     [SerializeField] private float MaxSpeed;
+    [SerializeField] private int CloudLayer;
+    [SerializeField] public Vector2 Objective;
 
     private float Speed;
-    private Position Objective;
 
-    // Start is called before the first frame update
     void Start()
     {
         Speed = Random.Range(MinSpeed, MaxSpeed);
+        Speed = Speed * Time.deltaTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.Lerp(transform.position, transform.position * 2, Time.deltaTime);
-    }
+        transform.position = Vector2.MoveTowards(transform.position, Objective, Speed);
 
-    public void test()
-    {
-        Debug.Log("Feur");
+        if (transform.position == new Vector3(Objective.x, Objective.y, 0))
+        {
+            Destroy(gameObject);
+        }
     }
 }
