@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da4f0d31d7ef014ea4b91bda8a0a51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnThreshold: 25
+  spawnThreshold: 18
   pointName: {fileID: 6101712713671423469}
   interestPointDatas: {fileID: 0}
   hoveredScale: {x: 1, y: 1, z: 1}

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections.Generic;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public float mapBorder;
     public AnimationCurve SmoothBorder;
 
+    [SerializeField] private GameObject introPanel;
+
     #region Info Panel
     [Header("Info Panel")]
     public GameObject infoPanel;
@@ -23,13 +25,12 @@ public class GameManager : MonoBehaviour
     public GameObject imageHolder;
     public GameObject detailedImageBackground;
     public GameObject detailedImage;
-    public List<GameObject> changeImageArrows = new();
     public Button placeImage;
     public Button quitButton;
     public bool infoPanelIsOpen;
     public bool isOnDetailedImage;
     private int currentImage;
-    private InterestPointDatas currentInterestPoint;
+    public InterestPointDatas currentInterestPoint;
     #endregion
 
     #region movement and velocities
@@ -79,11 +80,16 @@ public class GameManager : MonoBehaviour
 
         Vector3 newScreenPos = cam.transform.position;
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || Input.GetMouseButton(0))
         {
-            if(infoPanelIsOpen)
+            if(infoPanelIsOpen && Input.GetMouseButton(1))
             {
                 CloseInfoPanel();
+            }
+
+            if(infoPanelIsOpen && Input.GetMouseButton(0))
+            {
+                Debug.Log("Can't Move for now");
             }
 
             else
@@ -117,19 +123,35 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        var v = Input.GetAxis("Mouse ScrollWheel");
+        if(infoPanelIsOpen)
+        {
+            if(Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                SlideNextRight();
+            }
 
-        currentSize = Mathf.Clamp(currentSize - v * sensibilityScrollWheel, minSize, maxSize);
-        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, zoomSmoothTime);
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                SlideNextLeft();
+            }
+        }
+        
+        else
+        {
+            var v = Input.GetAxis("Mouse ScrollWheel");
 
-        newScreenPos = new Vector3(
-                Mathf.Clamp(newScreenPos.x, currentMap.bounds.min.x + cam.orthographicSize * cam.aspect, currentMap.bounds.max.x - cam.orthographicSize * cam.aspect),
-                Mathf.Clamp(newScreenPos.y, currentMap.bounds.min.y + cam.orthographicSize, currentMap.bounds.max.y - cam.orthographicSize),
-                newScreenPos.z);
+            currentSize = Mathf.Clamp(currentSize - v * sensibilityScrollWheel, minSize, maxSize);
+            cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, zoomSmoothTime);
 
-        cam.transform.position = newScreenPos;
+            newScreenPos = new Vector3(
+                    Mathf.Clamp(newScreenPos.x, currentMap.bounds.min.x + cam.orthographicSize * cam.aspect, currentMap.bounds.max.x - cam.orthographicSize * cam.aspect),
+                    Mathf.Clamp(newScreenPos.y, currentMap.bounds.min.y + cam.orthographicSize, currentMap.bounds.max.y - cam.orthographicSize),
+                    newScreenPos.z);
 
-        oldMousePos = mousePos;
+            cam.transform.position = newScreenPos;
+
+            oldMousePos = mousePos;
+        }
     }
 
     public void OpenInfoPanel(InterestPointDatas interestPointDatasValue)
@@ -141,24 +163,6 @@ public class GameManager : MonoBehaviour
         imageHolder.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
         AssignDatasInterestPoint(interestPointDatasValue);
-
-        if(interestPointDatasValue.interestPointMultipleDatas.Count > 1)
-        {
-            foreach(var arrows in changeImageArrows)
-            {
-                arrows.SetActive(true);
-                print(interestPointDatasValue.interestPointMultipleDatas.Count);
-            }
-        }
-        else
-        {
-            foreach (var arrows in changeImageArrows)
-            {
-                arrows.SetActive(false);
-                print(interestPointDatasValue.interestPointMultipleDatas.Count);
-            }
-        }
-
     }
 
     public void AssignDatasInterestPoint(InterestPointDatas interestPointDatasValue)
@@ -177,8 +181,7 @@ public class GameManager : MonoBehaviour
     public void SlideNextRight()
     {
         currentImage = (currentImage + 1) % currentInterestPoint.interestPointMultipleDatas.Count;
-
-        AssignDatasInterestPoint(currentInterestPoint);
+        placeImage.GetComponent<Animator>().SetBool("IsSwitching", true);
     }
 
     public void SlideNextLeft()
@@ -192,7 +195,7 @@ public class GameManager : MonoBehaviour
             currentImage = currentInterestPoint.interestPointMultipleDatas.Count - 1;
         }
 
-        AssignDatasInterestPoint(currentInterestPoint);
+        placeImage.GetComponent<Animator>().SetBool("IsSwitching", true);
     }
 
     public void CloseInfoPanel()
@@ -221,5 +224,20 @@ public class GameManager : MonoBehaviour
         detailedImage.GetComponent<Image>().sprite = currentInterestPoint.interestPointMultipleDatas[currentImage].image;
         float ratio = currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.width;
         detailedImage.transform.localScale = new Vector3(1, ratio, 1);
+    }
+
+    public void IntroStart()
+    {
+        introPanel.GetComponent<Animator>().SetBool("IsStarted?", true);
+        currentSize = 20;
+        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, zoomSmoothTime);
+        StartCoroutine(IntroEnd());
+    }
+
+    IEnumerator IntroEnd()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        introPanel.SetActive(false);
     }
 }
