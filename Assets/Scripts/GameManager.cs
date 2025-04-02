@@ -60,14 +60,13 @@ public class GameManager : MonoBehaviour
     {
         if(Instance == null)
         Instance = this;
-    }
 
-    void Start()
-    {
+
         cam = Camera.main;
         currentSize = cam.orthographicSize;
         blackBackground.SetActive(false);
     }
+
 
     // Update is called once per frame
     void Update()

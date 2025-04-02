@@ -30,6 +30,13 @@ public class InterestPoint : MonoBehaviour
         IconInterestPoint.Instance.SetBaseImage(interestPointDatas.interestPointType);
         baseImage = IconInterestPoint.Instance.currentIcon;
         this.GetComponent<SpriteRenderer>().sprite = baseImage;
+
+        if (GameManager.Instance.currentSize > spawnThreshold)
+        {
+            isVisible = false;
+            pointName.SetActive(false);
+            this.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -37,14 +44,12 @@ public class InterestPoint : MonoBehaviour
     {
         if(GameManager.Instance.currentSize <= spawnThreshold)
         {
-            isVisible = true;
+            this.GetComponent<Animator>().SetBool("IsVisible?", true);
             this.GetComponent<SpriteRenderer>().enabled = true;
         }
         else if(GameManager.Instance.currentSize > spawnThreshold)
         {
-            isVisible = false;
-            pointName.SetActive(false);
-            this.GetComponent<SpriteRenderer>().enabled = false;
+            this.GetComponent<Animator>().SetBool("IsVisible?", false);
         }
 
         if (isHovered)
@@ -93,5 +98,19 @@ public class InterestPoint : MonoBehaviour
             }
 
         }
+    }
+
+    public void Activate()
+    {
+        isVisible = true;
+        if(isHovered)
+        pointName.SetActive(true);
+    }
+
+    public void Deactivate()
+    {
+        isVisible = false;
+        pointName.SetActive(false);
+        this.GetComponent<SpriteRenderer>().enabled = false;
     }
 }
