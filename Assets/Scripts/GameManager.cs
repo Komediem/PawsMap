@@ -2,19 +2,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField] private SpriteRenderer currentMap;
+    #region Intro
 
-    private Camera cam;
-    public float currentSize;
-    public float mapBorder;
-    public AnimationCurve SmoothBorder;
-
+    [Header("Intro")]
     [SerializeField] private GameObject introPanel;
+    private bool isIntro;
+
+    #endregion
+
+    #region Map
+    [Header("Map")]
+    [SerializeField] private SpriteRenderer currentMap;
+    [HideInInspector] public float currentSize;
+    [HideInInspector] public float mapBorder;
+    #endregion
 
     #region Info Panel
     [Header("Info Panel")]
@@ -25,12 +32,16 @@ public class GameManager : MonoBehaviour
     public GameObject imageHolder;
     public GameObject detailedImageBackground;
     public GameObject detailedImage;
+    [SerializeField] private GameObject dot;
+    [SerializeField] private GameObject dotHolder;
+    public List<GameObject> currentDots = new();
     public Button placeImage;
     public Button quitButton;
-    public bool infoPanelIsOpen;
-    public bool isOnDetailedImage;
+    [HideInInspector] public bool infoPanelIsOpen;
+    [HideInInspector] public bool isOnDetailedImage;
+    [HideInInspector] public bool canSlide;
     private int currentImage;
-    public InterestPointDatas currentInterestPoint;
+    [HideInInspector] public InterestPointDatas currentInterestPoint;
     #endregion
 
     #region movement and velocities
@@ -44,6 +55,7 @@ public class GameManager : MonoBehaviour
     [Header("Camera Parameters")]
     [SerializeField] private float maxSize;
     [SerializeField] private float minSize;
+    private Camera cam;
     #endregion
 
     #region Sensibility and Controls
@@ -54,6 +66,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float sensibilityScrollWheel; 
     [SerializeField] private float zoomSmoothTime;
     [SerializeField] private float moveSmoothTime;
+    public AnimationCurve SmoothBorder;
     #endregion
 
     private void Awake()
@@ -65,6 +78,8 @@ public class GameManager : MonoBehaviour
         cam = Camera.main;
         currentSize = cam.orthographicSize;
         blackBackground.SetActive(false);
+        canSlide = true;
+        isIntro = true;
     }
 
 
@@ -79,7 +94,7 @@ public class GameManager : MonoBehaviour
 
         Vector3 newScreenPos = cam.transform.position;
 
-        if (Input.GetMouseButton(1) || Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1) || Input.GetMouseButton(0) && !isIntro)
         {
             if(infoPanelIsOpen && Input.GetMouseButton(1))
             {
@@ -124,12 +139,12 @@ public class GameManager : MonoBehaviour
 
         if(infoPanelIsOpen)
         {
-            if(Input.GetAxis("Mouse ScrollWheel") > 0)
+            if(Input.GetAxis("Mouse ScrollWheel") > 0 && currentInterestPoint.interestPointMultipleDatas.Count > 1 && canSlide)
             {
                 SlideNextRight();
             }
 
-            else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0 && currentInterestPoint.interestPointMultipleDatas.Count > 1 && canSlide)
             {
                 SlideNextLeft();
             }
@@ -162,6 +177,16 @@ public class GameManager : MonoBehaviour
         imageHolder.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
         AssignDatasInterestPoint(interestPointDatasValue);
+
+        //Create white dots depending on the number of images
+        if (currentInterestPoint.interestPointMultipleDatas.Count > 1)
+        {
+            for (int i = 0; i < currentInterestPoint.interestPointMultipleDatas.Count; i++)
+            {
+                var dotClone = Instantiate(dot, dotHolder.transform);
+                currentDots.Add(dotClone);
+            }
+        }
     }
 
     public void AssignDatasInterestPoint(InterestPointDatas interestPointDatasValue)
@@ -181,6 +206,7 @@ public class GameManager : MonoBehaviour
     {
         currentImage = (currentImage + 1) % currentInterestPoint.interestPointMultipleDatas.Count;
         placeImage.GetComponent<Animator>().SetBool("IsSwitching", true);
+        canSlide = false;
     }
 
     public void SlideNextLeft()
@@ -194,7 +220,8 @@ public class GameManager : MonoBehaviour
             currentImage = currentInterestPoint.interestPointMultipleDatas.Count - 1;
         }
 
-        placeImage.GetComponent<Animator>().SetBool("IsSwitching", true);
+        canSlide = false;
+        placeImage.GetComponent<Animator>().SetBool("IsSwitchingBackward", true);
     }
 
     public void CloseInfoPanel()
@@ -202,6 +229,7 @@ public class GameManager : MonoBehaviour
         if (isOnDetailedImage)
         {
             detailedImageBackground.SetActive(false);
+            canSlide = true;
             isOnDetailedImage = false;
         }
         else
@@ -213,6 +241,17 @@ public class GameManager : MonoBehaviour
             imageHolder.gameObject.SetActive(false);
             quitButton.gameObject.SetActive(false);
             currentImage = 0;
+
+            //Destroy all the current white dots if there are already
+            if (currentDots.Count > 0)
+            {
+                foreach (GameObject currentDot in currentDots)
+                {
+                    Destroy(currentDot);
+                }
+
+                currentDots.Clear();
+            }
         }
     }
 
@@ -223,6 +262,7 @@ public class GameManager : MonoBehaviour
         detailedImage.GetComponent<Image>().sprite = currentInterestPoint.interestPointMultipleDatas[currentImage].image;
         float ratio = currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.width;
         detailedImage.transform.localScale = new Vector3(1, ratio, 1);
+        canSlide = false;
     }
 
     public void IntroStart()
@@ -238,5 +278,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         introPanel.SetActive(false);
+        isIntro = false;
     }
 }

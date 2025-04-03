@@ -9,5 +9,11 @@ public class MainImageFeedbacks : MonoBehaviour
         GameManager.Instance.AssignDatasInterestPoint(GameManager.Instance.currentInterestPoint);
 
         this.GetComponent<Animator>().SetBool("IsSwitching", false);
+        this.GetComponent<Animator>().SetBool("IsSwitchingBackward", false);
+    }
+
+    public void UnlockSlide()
+    {
+        GameManager.Instance.canSlide = true; 
     }
 }
