@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Intro")]
     [SerializeField] private GameObject introPanel;
-    private bool isIntro;
+    [SerializeField] public bool isIntro;
 
     #endregion
 
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject dot;
     [SerializeField] private GameObject dotHolder;
     private GameObject currentLightedDot;
-    public List<GameObject> currentDots = new();
+    [HideInInspector] public List<GameObject> currentDots = new();
     public Button placeImage;
     public Button quitButton;
     [HideInInspector] public bool infoPanelIsOpen;
@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour
         canSlide = true;
         isIntro = true;
     }
-
 
     // Update is called once per frame
     void Update()
@@ -275,6 +274,7 @@ public class GameManager : MonoBehaviour
 
     public void IntroStart()
     {
+        IntroButton.instance.ResetImage();
         introPanel.GetComponent<Animator>().SetBool("IsStarted?", true);
         currentSize = 20;
         cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, zoomSmoothTime);
