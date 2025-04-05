@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject detailedImage;
     [SerializeField] private GameObject dot;
     [SerializeField] private GameObject dotHolder;
+    private GameObject currentLightedDot;
     public List<GameObject> currentDots = new();
     public Button placeImage;
     public Button quitButton;
@@ -141,12 +142,12 @@ public class GameManager : MonoBehaviour
         {
             if(Input.GetAxis("Mouse ScrollWheel") > 0 && currentInterestPoint.interestPointMultipleDatas.Count > 1 && canSlide)
             {
-                SlideNextRight();
+                SlideNextLeft();
             }
 
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && currentInterestPoint.interestPointMultipleDatas.Count > 1 && canSlide)
             {
-                SlideNextLeft();
+                SlideNextRight();
             }
         }
         
@@ -187,6 +188,8 @@ public class GameManager : MonoBehaviour
                 currentDots.Add(dotClone);
             }
         }
+
+        UpdateCurrentDot();
     }
 
     public void AssignDatasInterestPoint(InterestPointDatas interestPointDatasValue)
@@ -205,8 +208,11 @@ public class GameManager : MonoBehaviour
     public void SlideNextRight()
     {
         currentImage = (currentImage + 1) % currentInterestPoint.interestPointMultipleDatas.Count;
+
         placeImage.GetComponent<Animator>().SetBool("IsSwitching", true);
         canSlide = false;
+
+        UpdateCurrentDot();
     }
 
     public void SlideNextLeft()
@@ -222,6 +228,8 @@ public class GameManager : MonoBehaviour
 
         canSlide = false;
         placeImage.GetComponent<Animator>().SetBool("IsSwitchingBackward", true);
+
+        UpdateCurrentDot();
     }
 
     public void CloseInfoPanel()
@@ -279,5 +287,14 @@ public class GameManager : MonoBehaviour
 
         introPanel.SetActive(false);
         isIntro = false;
+    }
+
+    public void UpdateCurrentDot()
+    {
+        if (currentLightedDot != null)
+            currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", false);
+
+        currentLightedDot = currentDots[currentImage];
+        currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", true);
     }
 }
