@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
             }
         }
         
-        else
+        else if(!isIntro)
         {
             var v = Input.GetAxis("Mouse ScrollWheel");
 
