@@ -6,22 +6,31 @@ using UnityEngine.UI;
 
 public class IntroButton : MonoBehaviour
 {
-    public static IntroButton instance;
+    private bool isHovered;
+    private Vector3 baseScale; 
+    [SerializeField] private Vector3 hoveredScale;
+    [SerializeField] private float hoveredScalingSpeed;
 
-    public void Awake()
+    public void Update()
     {
-        if(instance == null)
-            instance = this;
+        if (isHovered)
+        {
+            this.transform.localScale = Vector3.Lerp(transform.localScale, hoveredScale, hoveredScalingSpeed * Time.deltaTime);
+        }
+
+        else
+        {
+            this.transform.localScale = Vector3.Lerp(transform.localScale, baseScale, hoveredScalingSpeed * Time.deltaTime);
+        }
     }
 
     public void Hovered()
     {
-        if(GameManager.Instance.isIntro)
-        this.GetComponentInParent<Animator>().SetBool("IsHovered?", true);
+        //
     }
 
     public void ResetImage()
     {
-        this.GetComponentInParent<Animator>().SetBool("IsHovered?", false);
+        //
     }
 }

@@ -274,10 +274,9 @@ public class GameManager : MonoBehaviour
 
     public void IntroStart()
     {
-        IntroButton.instance.ResetImage();
         introPanel.GetComponent<Animator>().SetBool("IsStarted?", true);
         currentSize = 20;
-        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, zoomSmoothTime);
+        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, 2f);
         StartCoroutine(IntroEnd());
     }
 
