@@ -1397,7 +1397,7 @@ Transform:
   m_GameObject: {fileID: 814432598}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40, y: 0, z: 0}
+  m_LocalPosition: {x: -50, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1604,7 +1604,7 @@ Transform:
   m_GameObject: {fileID: 993405177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 0, z: 0}
+  m_LocalPosition: {x: 50, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1965,10 +1965,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8defe79c52d9abf489a7650e77ebec64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CloudPrefab: {fileID: 8340905721860129411, guid: 9e7ed334153f5e54bac9e70b78898e9c, type: 3}
   RightCollider: {fileID: 993405179}
   LeftCollider: {fileID: 814432600}
-  CloudCount: 0
+  CloudPrefabs:
+  - {fileID: 8340905721860129411, guid: 9e7ed334153f5e54bac9e70b78898e9c, type: 3}
+  - {fileID: 8340905721860129411, guid: 8f3d921aab0b1f941a4a12ebb2bb9b92, type: 3}
+  - {fileID: 8340905721860129411, guid: 909c124dcae547f4a822acbd55f6ad36, type: 3}
+  - {fileID: 8340905721860129411, guid: 6c767f296fb31ef41ba93df43c74ff8d, type: 3}
+  - {fileID: 8340905721860129411, guid: e048fb4d2bb416149841e60d22c322cd, type: 3}
+  MinCloudSpeed: 0.15
+  MaxCloudSpeed: 0.7
 --- !u!1 &1363033061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introPanel: {fileID: 1645877819}
+  isIntro: 0
   currentMap: {fileID: 1624959332}
   currentSize: 0
   mapBorder: 0.1

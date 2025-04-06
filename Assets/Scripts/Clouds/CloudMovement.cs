@@ -7,17 +7,26 @@ using UnityEngine.UIElements;
 public class CloudMovement : MonoBehaviour
 {
 
-    [SerializeField] private float MinSpeed;
-    [SerializeField] private float MaxSpeed;
-    [SerializeField] private int CloudLayer;
-    [SerializeField] public Vector2 Objective;
+    [SerializeField] public float MinSpeed;
+    [SerializeField] public float MaxSpeed;
+    [Space]
+    [SerializeField] private int MinCloudOpacity;
+    [SerializeField] private int MaxCloudOpacity = 255;
 
+    [Header("Private Data")]
     private float Speed;
+    [SerializeField] public Vector2 Objective;
+    [SerializeField] private int CloudLayer;
+    [SerializeField] private int ID;
 
     void Start()
     {
         Speed = Random.Range(MinSpeed, MaxSpeed);
         Speed = Speed * Time.deltaTime;
+
+        float CloudRandomOpacity = Random.Range(MinCloudOpacity, MaxCloudOpacity);
+        CloudRandomOpacity = CloudRandomOpacity / 255;
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, CloudRandomOpacity);
     }
 
     void Update()

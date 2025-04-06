@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8075589969174937041}
   - component: {fileID: 8257345860471226962}
   m_Layer: 0
-  m_Name: CloudPrefab
+  m_Name: CloudPrefab 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 0e4dfc1979fa62b48941bbac88d919db, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2c3395015a2ba584494b8523381257da, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4117647}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,7 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d343b494ad98ef743b750ba4fbf5b0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinSpeed: 2
-  MaxSpeed: 3.5
-  CloudLayer: 0
+  MinSpeed: 0
+  MaxSpeed: 0
+  MinCloudOpacity: 30
+  MaxCloudOpacity: 105
   Objective: {x: 0, y: 0}
+  CloudLayer: 0
