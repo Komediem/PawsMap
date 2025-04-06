@@ -14,10 +14,10 @@ public class CloudMovement : MonoBehaviour
     [SerializeField] private int MaxCloudOpacity = 255;
 
     [Header("Private Data")]
-    private float Speed;
+    public float Speed;
     [SerializeField] public Vector2 Objective;
     [SerializeField] private int CloudLayer;
-    [SerializeField] private int ID;
+    [SerializeField] public int ID;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class CloudMovement : MonoBehaviour
         if (transform.position == new Vector3(Objective.x, Objective.y, 0))
         {
             Destroy(gameObject);
+            CloudSystem.Instance.NumberOfClouds -= 1;
         }
     }
 }

@@ -103,3 +103,4 @@ MonoBehaviour:
   MaxCloudOpacity: 255
   Objective: {x: 0, y: 0}
   CloudLayer: 0
+  ID: 0

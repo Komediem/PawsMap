@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class CloudSystem : MonoBehaviour
 {
-    [Header("Cloud Spawn Colliders")]
+    public static CloudSystem Instance;
+
+    [Header("Cloud Spawn")]
+    [SerializeField] private int TimeBetweenSpawn;
     [SerializeField] private BoxCollider2D RightCollider;
     [SerializeField] private BoxCollider2D LeftCollider;
-     private int CloudCount;
+    public int NumberOfClouds;
+    [SerializeField] private int MaxNumberOfClouds;
 
     [Space]
     [Space]
@@ -18,8 +22,16 @@ public class CloudSystem : MonoBehaviour
     [Space]
     [SerializeField] private float MinCloudSpeed;
     [SerializeField] private float MaxCloudSpeed;
-    //[Space]
-    //[SerializeField] private List <GameObject> sqd ;
+    [Space]
+    [SerializeField] private float MinCloudScale;
+    [SerializeField] private float MaxCloudScale;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
 
     void Start()
     {
@@ -28,8 +40,17 @@ public class CloudSystem : MonoBehaviour
 
     IEnumerator TimerForSpawn()
     {
-        yield return new WaitForSeconds(2);
-        SpawnCloud();
+        yield return new WaitForSeconds(TimeBetweenSpawn);
+
+        if (NumberOfClouds < MaxNumberOfClouds)
+        {
+            SpawnCloud();
+        }
+
+        else
+        {
+            StartCoroutine(TimerForSpawn());
+        }
     }
 
     void SpawnCloud()
@@ -38,7 +59,8 @@ public class CloudSystem : MonoBehaviour
         BoxCollider2D Collider;
 
         int CloudPrefabNumber = Random.Range(0, CloudPrefabs.Length);
-        Debug.Log(CloudPrefabNumber);
+        NumberOfClouds += 1;
+
 
         //Right Collider
         if (ColliderNumber == 0)
@@ -53,6 +75,7 @@ public class CloudSystem : MonoBehaviour
             CloudObject.GetComponent<CloudMovement>().Objective = new Vector2(-RandomPosition.x, RandomPosition.y);
 
             SetCloudRandomSpeed(CloudObject);
+            SetCloudRandomSize(CloudObject);
 
             //Restart Coroutine
             StartCoroutine(TimerForSpawn());
@@ -72,11 +95,13 @@ public class CloudSystem : MonoBehaviour
             CloudObject.GetComponent<CloudMovement>().Objective = new Vector2(Mathf.Abs(RandomPosition.x), RandomPosition.y);
 
             SetCloudRandomSpeed(CloudObject);
+            SetCloudRandomSize(CloudObject);
 
             //Restart Coroutine
             StartCoroutine(TimerForSpawn());
         }
     }
+
 
     private Vector2 RandomPositionInCollider(BoxCollider2D SpawnCollider)
     {
@@ -93,4 +118,10 @@ public class CloudSystem : MonoBehaviour
         SpawnedCloud.GetComponent<CloudMovement>().MaxSpeed = MaxCloudSpeed;
     }
 
+
+    void SetCloudRandomSize(GameObject SpawnedCloud)
+    {
+        float RandomSize = Random.Range(MinCloudScale, MaxCloudScale);
+        SpawnedCloud.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(RandomSize, RandomSize, RandomSize);
+    }
 }
