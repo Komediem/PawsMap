@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     private GameObject currentLightedDot;
     [HideInInspector] public List<GameObject> currentDots = new();
     public Button placeImage;
+    public GameObject previousImage;
+    public GameObject nextImage;
     public Button quitButton;
     [HideInInspector] public bool infoPanelIsOpen;
     [HideInInspector] public bool isOnDetailedImage;
@@ -198,10 +200,75 @@ public class GameManager : MonoBehaviour
         panelTitle.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.title;
         panelDescription.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.interestPointMultipleDatas[currentImage].imageDescription;
         placeImage.image.sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage].image;
+        
+        if(currentInterestPoint.interestPointMultipleDatas.Count > 2)
+        {
+            previousImage.SetActive(true);
+            nextImage.SetActive(true);
 
+            //IMAGE 0
+            if (currentImage == 0)
+            {
+                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[currentInterestPoint.interestPointMultipleDatas.Count - 1].image;
 
+                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage + 1].image;
+
+                print("First Image");
+            }
+
+            //IMAGE MAX
+            else if (currentImage >= currentInterestPoint.interestPointMultipleDatas.Count - 1)
+            {
+                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage - 1].image;
+
+                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[0].image;
+
+                print("Last Image");
+            }
+
+            //IMAGE INTERMEDIATE
+            else if (currentImage > 0)
+            {
+                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage - 1].image;
+
+                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage + 1].image;
+
+                print("Middle Images");
+            }
+        }
+
+        else if(currentInterestPoint.interestPointMultipleDatas.Count == 2)
+        {
+            //IMAGE 0
+            if (currentImage == 0)
+            {
+                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[1].image;
+                previousImage.SetActive(false);
+                nextImage.SetActive(true);
+            }
+            
+            if(currentImage == 1)
+            {
+                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[0].image;
+                previousImage.SetActive(true);
+                nextImage.SetActive(false);
+            }
+        }
+
+        else
+        {
+            previousImage.SetActive(false);
+            nextImage.SetActive(false);
+        }
+
+        /*
         float ratio = currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.width;
+        float ratioPrev = currentInterestPoint.interestPointMultipleDatas[currentInterestPoint.interestPointMultipleDatas.Count - 1].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentInterestPoint.interestPointMultipleDatas.Count - 1].image.rect.width;
+        float ratioNext = currentInterestPoint.interestPointMultipleDatas[currentImage + 1].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentImage + 1].image.rect.width;
         placeImage.transform.localScale = new Vector3(1, ratio, 1);
+        previousImage.transform.localScale = new Vector3(1, ratioPrev, 1);
+        nextImage.transform.localScale = new Vector3(1, ratioNext, 1);
+        */
     }
 
     public void SlideNextRight()
@@ -209,6 +276,7 @@ public class GameManager : MonoBehaviour
         currentImage = (currentImage + 1) % currentInterestPoint.interestPointMultipleDatas.Count;
 
         placeImage.GetComponent<Animator>().SetBool("IsSwitching", true);
+        
         canSlide = false;
 
         UpdateCurrentDot();
@@ -290,10 +358,13 @@ public class GameManager : MonoBehaviour
 
     public void UpdateCurrentDot()
     {
-        if (currentLightedDot != null)
-            currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", false);
+        if(currentInterestPoint.interestPointMultipleDatas.Count > 1)
+        {
+            if (currentLightedDot != null)
+                currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", false);
 
-        currentLightedDot = currentDots[currentImage];
-        currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", true);
+            currentLightedDot = currentDots[currentImage];
+            currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", true);
+        }
     }
 }
