@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 571b7e5ed6bb78a48849eaa2914826b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98f35f1ca3712b44284bdda457c85aa2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.56078434}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   MaxSpeed: 0
   MinCloudOpacity: 40
   MaxCloudOpacity: 140
+  Speed: 0
   Objective: {x: 0, y: 0}
   CloudLayer: 0
   ID: 0

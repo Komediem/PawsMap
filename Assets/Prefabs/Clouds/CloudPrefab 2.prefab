@@ -101,6 +101,7 @@ MonoBehaviour:
   MaxSpeed: 0
   MinCloudOpacity: 30
   MaxCloudOpacity: 80
+  Speed: 0
   Objective: {x: 0, y: 0}
   CloudLayer: 0
   ID: 0
