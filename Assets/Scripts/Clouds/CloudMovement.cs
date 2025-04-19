@@ -12,6 +12,8 @@ public class CloudMovement : MonoBehaviour
     [Space]
     [SerializeField] private int MinCloudOpacity;
     [SerializeField] private int MaxCloudOpacity = 255;
+    [SerializeField] private BoxCollider2D Collider;
+    [SerializeField] private bool IsTopBottomCloud = false;
 
     [Header("Private Data")]
     public float Speed;
@@ -31,12 +33,29 @@ public class CloudMovement : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, Objective, Speed);
-
-        if (transform.position == new Vector3(Objective.x, Objective.y, 0))
+        if (IsTopBottomCloud == false)
         {
-            Destroy(gameObject);
-            CloudSystem.Instance.NumberOfClouds -= 1;
+            transform.position = Vector2.MoveTowards(transform.position, Objective, Speed);
+
+            if (transform.position == new Vector3(Objective.x, Objective.y, 0))
+            {
+                Destroy(gameObject);
+                CloudSystem.Instance.NumberOfClouds -= 1;
+            }
         }
+        if (IsTopBottomCloud == true)
+        {
+            transform.Translate(Vector2.right * Speed);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log("ye");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("ahhhh");
     }
 }
