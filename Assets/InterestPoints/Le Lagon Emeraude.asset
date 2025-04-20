@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: Le Lagon Emeraude
   m_EditorClassIdentifier: 
   title: LE LAGON EMERAUDE
-  interestPointMultipleDatas:
-  - image: {fileID: 21300000, guid: 140a362522150294d80602259c7cd4fa, type: 3}
-    imageDescription: Image 1
-  - image: {fileID: 21300000, guid: 35f30099b60fd334089d58be8fca7cc0, type: 3}
-    imageDescription: Image 2
+  subtitle: 
+  climaticCondition: 
+  faunaAndFlora: 
+  frequentRessources: 
+  dangerosity: 
+  iconBase: {fileID: 21300000, guid: ce35a0b4dd5bb1a4c8147ed82fef19d1, type: 3}
+  iconHovered: {fileID: 21300000, guid: b0d8a661488459241a4d57913adbb427, type: 3}
+  Researches: []
+  Illustrations: []
+  currentImages: []
+  isResearches: 0

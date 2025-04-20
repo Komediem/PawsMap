@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Les Landes d'Or
   m_EditorClassIdentifier: 
   title: LES LANDES D'OR
-  interestPointType: 0
-  interestPointMultipleDatas:
-  - image: {fileID: 21300000, guid: 403b640bc4de31e4f81ed356b5dd24d1, type: 3}
-    imageDescription: Image 1
-  - image: {fileID: 21300000, guid: eb108ffce55d4cb40a567631d95fae1e, type: 3}
-    imageDescription: Image 2
-  - image: {fileID: 21300000, guid: 014f76ad08b322e43a6a5736b1fb92fd, type: 3}
-    imageDescription: Image 3
-  - image: {fileID: 21300000, guid: 6f2c0172ac8d4544b9a414f42ae44186, type: 3}
-    imageDescription: Image 4
+  subtitle: 
+  climaticCondition: 
+  faunaAndFlora: 
+  frequentRessources: 
+  dangerosity: 
+  iconBase: {fileID: 21300000, guid: ce35a0b4dd5bb1a4c8147ed82fef19d1, type: 3}
+  iconHovered: {fileID: 21300000, guid: b0d8a661488459241a4d57913adbb427, type: 3}
+  Researches: []
+  Illustrations: []
+  currentImages: []
+  isResearches: 0

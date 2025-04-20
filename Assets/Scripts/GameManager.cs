@@ -30,10 +30,6 @@ public class GameManager : MonoBehaviour
     public GameObject imageHolder;
     public GameObject detailedImageBackground;
     public GameObject detailedImage;
-    [SerializeField] private GameObject dot;
-    [SerializeField] private GameObject dotHolder;
-    private GameObject currentLightedDot;
-    [HideInInspector] public List<GameObject> currentDots = new();
     public Button placeImage;
     public GameObject previousImage;
     public GameObject nextImage;
@@ -45,9 +41,18 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public InterestPointDatas currentInterestPoint;
     #endregion
 
+    [Header("Dots")]
+    [SerializeField] private GameObject dot;
+    [SerializeField] private GameObject dotHolder;
+    private GameObject currentLightedDot;
+    [HideInInspector] public List<GameObject> currentDots = new();
+    [SerializeField] private Sprite baseDot;
+    [SerializeField] private Sprite activeDot;
+
     [Header("Info Panel Texts")]
     [SerializeField] private GameObject Title;
     [SerializeField] private GameObject RegionName;
+    [SerializeField] private GameObject PlaceIcon;
     [SerializeField] private GameObject ClimaticCondition;
     [SerializeField] private GameObject FaunaAndFlora;
     [SerializeField] private GameObject FrequentRessources;
@@ -218,6 +223,7 @@ public class GameManager : MonoBehaviour
         Dangerosity.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.dangerosity;
 
         panelDescription.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.currentImages[currentImage].imageDescription;
+        PlaceIcon.GetComponent<Image>().sprite = interestPointDatasValue.iconHovered;
 
         //Assign Image
         placeImage.image.sprite = interestPointDatasValue.currentImages[currentImage].image;
@@ -278,13 +284,14 @@ public class GameManager : MonoBehaviour
         }
 
         float ratio = currentInterestPoint.currentImages[currentImage].image.rect.height / currentInterestPoint.currentImages[currentImage].image.rect.width;
-        placeImage.transform.localScale = new Vector3(1, ratio * 2, 1);
+        placeImage.transform.localScale = new Vector3(1, ratio * 2.5f, 1);
 
         /*
-        float ratioPrev = currentInterestPoint.interestPointMultipleDatas[currentInterestPoint.interestPointMultipleDatas.Count - 1].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentInterestPoint.interestPointMultipleDatas.Count - 1].image.rect.width;
-        float ratioNext = currentInterestPoint.interestPointMultipleDatas[currentImage + 1].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentImage + 1].image.rect.width;
-        previousImage.transform.localScale = new Vector3(1, ratioPrev, 1);
-        nextImage.transform.localScale = new Vector3(1, ratioNext, 1);
+        float ratioPrev = currentInterestPoint.currentImages[currentInterestPoint.currentImages.Count - 1].image.rect.height / currentInterestPoint.currentImages[currentInterestPoint.currentImages.Count - 1].image.rect.width;
+        previousImage.transform.localScale = new Vector3(1, ratioPrev * 2, 1);
+
+        float ratioNext = currentInterestPoint.currentImages[currentImage + 1].image.rect.height / currentInterestPoint.currentImages[currentImage + 1].image.rect.width;
+        nextImage.transform.localScale = new Vector3(1, ratioNext * 2, 1);
         */
     }
 
@@ -362,10 +369,14 @@ public class GameManager : MonoBehaviour
         if (currentInterestPoint.currentImages.Count > 1)
         {
             if (currentLightedDot != null)
+            {
                 currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", false);
+                currentLightedDot.GetComponent<Image>().sprite = baseDot;
+            }
 
             currentLightedDot = currentDots[currentImage];
             currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", true);
+            currentLightedDot.GetComponent<Image>().sprite = activeDot;
         }
     }
 

@@ -13,19 +13,14 @@ public class InterestPointDatas : ScriptableObject
     public string frequentRessources;
     public string dangerosity;
 
-    public InterestPointTypes interestPointType;
+    public Sprite iconBase;
+    public Sprite iconHovered;
+
     public List<InterestPointMultipleDatas> Researches;
     public List<InterestPointMultipleDatas> Illustrations;
 
     [HideInInspector] public List<InterestPointMultipleDatas> currentImages;
     [HideInInspector] public bool isResearches;
-}
-
-public enum InterestPointTypes
-{
-    place,
-    creature,
-    flora
 }
 
 [Serializable]

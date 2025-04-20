@@ -27,8 +27,7 @@ public class InterestPoint : MonoBehaviour
         pointName.GetComponent<TextMeshPro>().text = interestPointDatas.title;
         pointName.SetActive(false);
 
-        IconInterestPoint.Instance.SetBaseImage(interestPointDatas.interestPointType);
-        baseImage = IconInterestPoint.Instance.currentIcon;
+        baseImage = interestPointDatas.iconBase;
         this.GetComponent<SpriteRenderer>().sprite = baseImage;
 
         if (GameManager.Instance.currentSize > spawnThreshold)
@@ -66,7 +65,7 @@ public class InterestPoint : MonoBehaviour
     public void Hovered()
     {
         //Feedback hovering
-        this.GetComponent<SpriteRenderer>().color = Color.green;
+        this.GetComponent<SpriteRenderer>().sprite = interestPointDatas.iconHovered;
 
         //Utils
         isHovered = true;
@@ -76,7 +75,7 @@ public class InterestPoint : MonoBehaviour
     public void ResetImage()
     {
         //Feedback reseting image
-        this.GetComponent<SpriteRenderer>().color = Color.white;
+        this.GetComponent<SpriteRenderer>().sprite = interestPointDatas.iconBase;
 
         //Utils
         isHovered = false;
