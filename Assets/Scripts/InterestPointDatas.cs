@@ -6,6 +6,13 @@ using UnityEngine;
 public class InterestPointDatas : ScriptableObject
 {
     public string title;
+    public string subtitle;
+
+    public string climaticCondition;
+    public string faunaAndFlora;
+    public string frequentRessources;
+    public string dangerosity;
+
     public InterestPointTypes interestPointType;
     public List<InterestPointMultipleDatas> Researches;
     public List<InterestPointMultipleDatas> Illustrations;

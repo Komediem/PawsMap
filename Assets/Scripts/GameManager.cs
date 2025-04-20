@@ -26,8 +26,6 @@ public class GameManager : MonoBehaviour
     #region Info Panel
     [Header("Info Panel")]
     public GameObject infoPanel;
-    public GameObject panelTitle;
-    public GameObject panelDescription;
     public GameObject blackBackground;
     public GameObject imageHolder;
     public GameObject detailedImageBackground;
@@ -46,6 +44,15 @@ public class GameManager : MonoBehaviour
     private int currentImage;
     [HideInInspector] public InterestPointDatas currentInterestPoint;
     #endregion
+
+    [Header("Info Panel Texts")]
+    [SerializeField] private GameObject Title;
+    [SerializeField] private GameObject RegionName;
+    [SerializeField] private GameObject ClimaticCondition;
+    [SerializeField] private GameObject FaunaAndFlora;
+    [SerializeField] private GameObject FrequentRessources;
+    [SerializeField] private GameObject Dangerosity;
+    [SerializeField] private GameObject panelDescription;
 
     #region movement and velocities
     Vector3 oldMousePos = Vector3.zero;
@@ -200,8 +207,19 @@ public class GameManager : MonoBehaviour
         //Set Datas to interest point clicked
         currentInterestPoint = interestPointDatasValue;
         SpawnTypeOfImage();
-        panelTitle.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.title;
+
+        //Set All Texts
+        Title.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.title;
+        RegionName.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.subtitle;
+
+        ClimaticCondition.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.climaticCondition;
+        FaunaAndFlora.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.faunaAndFlora;
+        FrequentRessources.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.frequentRessources;
+        Dangerosity.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.dangerosity;
+
         panelDescription.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.currentImages[currentImage].imageDescription;
+
+        //Assign Image
         placeImage.image.sprite = interestPointDatasValue.currentImages[currentImage].image;
 
 
@@ -379,6 +397,9 @@ public class GameManager : MonoBehaviour
     {
         currentInterestPoint.currentImages = currentInterestPoint.Illustrations;
         currentInterestPoint.isResearches = false;
+
+        Button test = this.quitButton;
+        test.Select();
     }
 
     public void SwitchImagesToResearches()
