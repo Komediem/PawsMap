@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
 
             if(infoPanelIsOpen && Input.GetMouseButton(0))
             {
-                Debug.Log("Can't Move for now");
+                //Can't Move !
             }
 
             else
@@ -141,12 +141,12 @@ public class GameManager : MonoBehaviour
 
         if(infoPanelIsOpen)
         {
-            if(Input.GetAxis("Mouse ScrollWheel") > 0 && currentInterestPoint.interestPointMultipleDatas.Count > 1 && canSlide)
+            if(Input.GetAxis("Mouse ScrollWheel") > 0 && currentInterestPoint.currentImages.Count > 1 && canSlide)
             {
                 SlideNextLeft();
             }
 
-            else if (Input.GetAxis("Mouse ScrollWheel") < 0 && currentInterestPoint.interestPointMultipleDatas.Count > 1 && canSlide)
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0 && currentInterestPoint.currentImages.Count > 1 && canSlide)
             {
                 SlideNextRight();
             }
@@ -170,6 +170,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #region Info Panel Utils
+
     public void OpenInfoPanel(InterestPointDatas interestPointDatasValue)
     {
         infoPanel.GetComponent<Animator>().SetBool("IsOpen?", true);
@@ -181,9 +183,9 @@ public class GameManager : MonoBehaviour
         AssignDatasInterestPoint(interestPointDatasValue);
 
         //Create white dots depending on the number of images
-        if (currentInterestPoint.interestPointMultipleDatas.Count > 1)
+        if (currentInterestPoint.currentImages.Count > 1)
         {
-            for (int i = 0; i < currentInterestPoint.interestPointMultipleDatas.Count; i++)
+            for (int i = 0; i < currentInterestPoint.currentImages.Count; i++)
             {
                 var dotClone = Instantiate(dot, dotHolder.transform);
                 currentDots.Add(dotClone);
@@ -197,11 +199,13 @@ public class GameManager : MonoBehaviour
     {
         //Set Datas to interest point clicked
         currentInterestPoint = interestPointDatasValue;
+        SpawnTypeOfImage();
         panelTitle.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.title;
-        panelDescription.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.interestPointMultipleDatas[currentImage].imageDescription;
-        placeImage.image.sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage].image;
-        
-        if(currentInterestPoint.interestPointMultipleDatas.Count > 2)
+        panelDescription.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.currentImages[currentImage].imageDescription;
+        placeImage.image.sprite = interestPointDatasValue.currentImages[currentImage].image;
+
+
+        if (currentInterestPoint.currentImages.Count > 2)
         {
             previousImage.SetActive(true);
             nextImage.SetActive(true);
@@ -209,47 +213,41 @@ public class GameManager : MonoBehaviour
             //IMAGE 0
             if (currentImage == 0)
             {
-                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[currentInterestPoint.interestPointMultipleDatas.Count - 1].image;
+                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.currentImages[currentInterestPoint.currentImages.Count - 1].image;
 
-                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage + 1].image;
-
-                print("First Image");
+                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.currentImages[currentImage + 1].image;
             }
 
             //IMAGE MAX
-            else if (currentImage >= currentInterestPoint.interestPointMultipleDatas.Count - 1)
+            else if (currentImage >= currentInterestPoint.currentImages.Count - 1)
             {
-                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage - 1].image;
+                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.currentImages[currentImage - 1].image;
 
-                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[0].image;
-
-                print("Last Image");
+                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.currentImages[0].image;
             }
 
             //IMAGE INTERMEDIATE
             else if (currentImage > 0)
             {
-                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage - 1].image;
+                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.currentImages[currentImage - 1].image;
 
-                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[currentImage + 1].image;
-
-                print("Middle Images");
+                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.currentImages[currentImage + 1].image;
             }
         }
 
-        else if(currentInterestPoint.interestPointMultipleDatas.Count == 2)
+        else if (currentInterestPoint.currentImages.Count == 2)
         {
             //IMAGE 0
             if (currentImage == 0)
             {
-                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[1].image;
+                nextImage.GetComponent<Image>().sprite = interestPointDatasValue.currentImages[1].image;
                 previousImage.SetActive(false);
                 nextImage.SetActive(true);
             }
-            
-            if(currentImage == 1)
+
+            if (currentImage == 1)
             {
-                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.interestPointMultipleDatas[0].image;
+                previousImage.GetComponent<Image>().sprite = interestPointDatasValue.currentImages[0].image;
                 previousImage.SetActive(true);
                 nextImage.SetActive(false);
             }
@@ -261,11 +259,12 @@ public class GameManager : MonoBehaviour
             nextImage.SetActive(false);
         }
 
+        float ratio = currentInterestPoint.currentImages[currentImage].image.rect.height / currentInterestPoint.currentImages[currentImage].image.rect.width;
+        placeImage.transform.localScale = new Vector3(1, ratio * 2, 1);
+
         /*
-        float ratio = currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.width;
         float ratioPrev = currentInterestPoint.interestPointMultipleDatas[currentInterestPoint.interestPointMultipleDatas.Count - 1].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentInterestPoint.interestPointMultipleDatas.Count - 1].image.rect.width;
         float ratioNext = currentInterestPoint.interestPointMultipleDatas[currentImage + 1].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentImage + 1].image.rect.width;
-        placeImage.transform.localScale = new Vector3(1, ratio, 1);
         previousImage.transform.localScale = new Vector3(1, ratioPrev, 1);
         nextImage.transform.localScale = new Vector3(1, ratioNext, 1);
         */
@@ -273,10 +272,10 @@ public class GameManager : MonoBehaviour
 
     public void SlideNextRight()
     {
-        currentImage = (currentImage + 1) % currentInterestPoint.interestPointMultipleDatas.Count;
+        currentImage = (currentImage + 1) % currentInterestPoint.currentImages.Count;
 
         placeImage.GetComponent<Animator>().SetBool("IsSwitching", true);
-        
+
         canSlide = false;
 
         UpdateCurrentDot();
@@ -284,13 +283,13 @@ public class GameManager : MonoBehaviour
 
     public void SlideNextLeft()
     {
-        if(currentImage > 0)
+        if (currentImage > 0)
         {
             currentImage -= 1;
         }
         else
         {
-            currentImage = currentInterestPoint.interestPointMultipleDatas.Count - 1;
+            currentImage = currentInterestPoint.currentImages.Count - 1;
         }
 
         canSlide = false;
@@ -334,11 +333,27 @@ public class GameManager : MonoBehaviour
     {
         isOnDetailedImage = true;
         detailedImageBackground.SetActive(true);
-        detailedImage.GetComponent<Image>().sprite = currentInterestPoint.interestPointMultipleDatas[currentImage].image;
-        float ratio = currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.height / currentInterestPoint.interestPointMultipleDatas[currentImage].image.rect.width;
+        detailedImage.GetComponent<Image>().sprite = currentInterestPoint.currentImages[currentImage].image;
+        float ratio = currentInterestPoint.currentImages[currentImage].image.rect.height / currentInterestPoint.currentImages[currentImage].image.rect.width;
         detailedImage.transform.localScale = new Vector3(1, ratio, 1);
         canSlide = false;
     }
+
+    public void UpdateCurrentDot()
+    {
+        if (currentInterestPoint.currentImages.Count > 1)
+        {
+            if (currentLightedDot != null)
+                currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", false);
+
+            currentLightedDot = currentDots[currentImage];
+            currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", true);
+        }
+    }
+
+    #endregion
+
+    #region Intro
 
     public void IntroStart()
     {
@@ -356,15 +371,43 @@ public class GameManager : MonoBehaviour
         isIntro = false;
     }
 
-    public void UpdateCurrentDot()
-    {
-        if(currentInterestPoint.interestPointMultipleDatas.Count > 1)
-        {
-            if (currentLightedDot != null)
-                currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", false);
+    #endregion
 
-            currentLightedDot = currentDots[currentImage];
-            currentLightedDot.GetComponent<Animator>().SetBool("IsLightedUp", true);
-        }
+    #region ResearchToIllustration
+
+    private void SpawnTypeOfImage()
+    {
+        currentInterestPoint.currentImages = currentInterestPoint.Illustrations;
+        currentInterestPoint.isResearches = false;
     }
+
+    public void SwitchImagesToResearches()
+    {
+        //Switch to Researches
+        if (!currentInterestPoint.isResearches)
+        {
+            currentInterestPoint.currentImages = currentInterestPoint.Researches;
+            currentInterestPoint.isResearches = true;
+
+            AssignDatasInterestPoint(currentInterestPoint);
+        }
+
+        print(currentInterestPoint.currentImages);
+    }
+
+    public void SwitchImagesToIllustrations()
+    {
+        //Switch to Illustrations
+        if (currentInterestPoint.isResearches)
+        {
+            currentInterestPoint.currentImages = currentInterestPoint.Illustrations;
+            currentInterestPoint.isResearches = false;
+
+            AssignDatasInterestPoint(currentInterestPoint);
+        }
+
+        print(currentInterestPoint.currentImages);
+    }
+
+    #endregion
 }

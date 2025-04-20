@@ -7,7 +7,11 @@ public class InterestPointDatas : ScriptableObject
 {
     public string title;
     public InterestPointTypes interestPointType;
-    public List<InterestPointMultipleDatas> interestPointMultipleDatas;
+    public List<InterestPointMultipleDatas> Researches;
+    public List<InterestPointMultipleDatas> Illustrations;
+
+    [HideInInspector] public List<InterestPointMultipleDatas> currentImages;
+    [HideInInspector] public bool isResearches;
 }
 
 public enum InterestPointTypes
