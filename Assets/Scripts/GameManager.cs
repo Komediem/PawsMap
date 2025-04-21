@@ -409,6 +409,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SmoothZoomInterestPoint(GameObject interestPointClicked, InterestPointDatas interestPointDatasValue)
+    {
+        StartCoroutine(LerpFunction(interestPointClicked, interestPointDatasValue, 6, 1));
+    }
+
+    IEnumerator LerpFunction(GameObject interestPointClicked, InterestPointDatas interestPointDatasValue, float targetValue, float duration)
+    {
+        float time = 0;
+        float startValue = currentSize;
+
+        while (time < duration)
+        {
+            currentSize = Mathf.Lerp(currentSize, targetValue, time / duration);
+
+            Vector3 target = interestPointClicked.transform.position;
+            target.Set(interestPointClicked.transform.position.x, interestPointClicked.transform.position.y, cam.transform.position.z);
+
+            cam.transform.position = Vector3.Lerp(cam.transform.position, target, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        OpenInfoPanel(interestPointDatasValue);
+        currentSize = targetValue;
+    }
+
     #endregion
 
     #region Intro

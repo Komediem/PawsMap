@@ -93,7 +93,7 @@ public class InterestPoint : MonoBehaviour
 
             else
             {
-                GameManager.Instance.OpenInfoPanel(interestPointDatas);
+                GameManager.Instance.SmoothZoomInterestPoint(this.gameObject, interestPointDatas);
             }
 
         }
