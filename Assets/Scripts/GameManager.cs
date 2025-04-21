@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     #region Info Panel
     [Header("Info Panel")]
     public GameObject infoPanel;
+    public GameObject infoTextPanel;
     public GameObject blackBackground;
     public GameObject imageHolder;
     public GameObject detailedImageBackground;
@@ -443,7 +444,7 @@ public class GameManager : MonoBehaviour
     {
         introPanel.GetComponent<Animator>().SetBool("IsStarted?", true);
         currentSize = 20;
-        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, 2f);
+        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, 5);
         StartCoroutine(IntroEnd());
     }
 
@@ -452,6 +453,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         introPanel.SetActive(false);
+        infoTextPanel.SetActive(true);
+    }
+
+    public void StartPlaying()
+    {
+        infoTextPanel.SetActive(false);
         isIntro = false;
     }
 
@@ -465,6 +472,7 @@ public class GameManager : MonoBehaviour
         currentInterestPoint.currentImages = currentInterestPoint.Illustrations;
         currentInterestPoint.isResearches = false;
 
+        illustrationButton.Select();
         AssignDatasInterestPoint(currentInterestPoint);
     }
 
