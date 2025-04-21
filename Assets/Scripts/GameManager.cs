@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,8 +40,11 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool canSlide;
     private int currentImage;
     [HideInInspector] public InterestPointDatas currentInterestPoint;
+    [SerializeField] private Button researchButton;
+    [SerializeField] private Button illustrationButton;
     #endregion
 
+    #region Dots
     [Header("Dots")]
     [SerializeField] private GameObject dot;
     [SerializeField] private GameObject dotHolder;
@@ -48,6 +52,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public List<GameObject> currentDots = new();
     [SerializeField] private Sprite baseDot;
     [SerializeField] private Sprite activeDot;
+
+    #endregion
+
+    #region Info Panel Texts
 
     [Header("Info Panel Texts")]
     [SerializeField] private GameObject Title;
@@ -58,6 +66,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject FrequentRessources;
     [SerializeField] private GameObject Dangerosity;
     [SerializeField] private GameObject panelDescription;
+    #endregion
 
     #region movement and velocities
     Vector3 oldMousePos = Vector3.zero;
@@ -194,24 +203,14 @@ public class GameManager : MonoBehaviour
         quitButton.gameObject.SetActive(true);
         AssignDatasInterestPoint(interestPointDatasValue);
 
-        //Create white dots depending on the number of images
-        if (currentInterestPoint.currentImages.Count > 1)
-        {
-            for (int i = 0; i < currentInterestPoint.currentImages.Count; i++)
-            {
-                var dotClone = Instantiate(dot, dotHolder.transform);
-                currentDots.Add(dotClone);
-            }
-        }
-
-        UpdateCurrentDot();
+        SpawnCurrentDot();
+        SpawnTypeOfImage();
     }
 
     public void AssignDatasInterestPoint(InterestPointDatas interestPointDatasValue)
     {
         //Set Datas to interest point clicked
         currentInterestPoint = interestPointDatasValue;
-        SpawnTypeOfImage();
 
         //Set All Texts
         Title.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.title;
@@ -364,6 +363,36 @@ public class GameManager : MonoBehaviour
         canSlide = false;
     }
 
+    public void SpawnCurrentDot()
+    {
+        if(currentDots.Count > 0)
+        {
+            foreach(GameObject dot in currentDots)
+            {
+                Destroy(dot);
+            }
+
+            for(var i = 0; i < currentDots.Count; i++)
+            {
+                currentDots.RemoveAt(i);
+            }
+        }
+
+        //Create white dots depending on the number of images
+        if (currentInterestPoint.currentImages.Count > 1)
+        {
+            for (int i = 0; i < currentInterestPoint.currentImages.Count; i++)
+            {
+                var dotClone = Instantiate(dot, dotHolder.transform);
+                currentDots.Add(dotClone);
+            }
+        }
+
+        print("SpawnDot");
+
+        UpdateCurrentDot();
+    }
+
     public void UpdateCurrentDot()
     {
         if (currentInterestPoint.currentImages.Count > 1)
@@ -406,11 +435,11 @@ public class GameManager : MonoBehaviour
 
     private void SpawnTypeOfImage()
     {
+        //Set base images to illustrations
         currentInterestPoint.currentImages = currentInterestPoint.Illustrations;
         currentInterestPoint.isResearches = false;
 
-        Button test = this.quitButton;
-        test.Select();
+        AssignDatasInterestPoint(currentInterestPoint);
     }
 
     public void SwitchImagesToResearches()
@@ -418,13 +447,14 @@ public class GameManager : MonoBehaviour
         //Switch to Researches
         if (!currentInterestPoint.isResearches)
         {
+            currentImage = 0;
+
             currentInterestPoint.currentImages = currentInterestPoint.Researches;
             currentInterestPoint.isResearches = true;
 
             AssignDatasInterestPoint(currentInterestPoint);
+            SpawnCurrentDot();
         }
-
-        print(currentInterestPoint.currentImages);
     }
 
     public void SwitchImagesToIllustrations()
@@ -432,13 +462,14 @@ public class GameManager : MonoBehaviour
         //Switch to Illustrations
         if (currentInterestPoint.isResearches)
         {
+            currentImage = 0;
+
             currentInterestPoint.currentImages = currentInterestPoint.Illustrations;
             currentInterestPoint.isResearches = false;
 
             AssignDatasInterestPoint(currentInterestPoint);
+            SpawnCurrentDot();
         }
-
-        print(currentInterestPoint.currentImages);
     }
 
     #endregion
