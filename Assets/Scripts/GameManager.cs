@@ -330,6 +330,15 @@ public class GameManager : MonoBehaviour
             detailedImageBackground.SetActive(false);
             canSlide = true;
             isOnDetailedImage = false;
+
+            if(currentInterestPoint.isResearches == false)
+            {
+                illustrationButton.Select();
+            }
+            else
+            {
+                researchButton.Select();
+            }
         }
         else
         {
