@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float sensibilityScrollWheel; 
     [SerializeField] private float zoomSmoothTime;
     [SerializeField] private float moveSmoothTime;
+    [SerializeField] private Vector3 smoothEffect;
     public AnimationCurve SmoothBorder;
     #endregion
 
@@ -187,24 +188,22 @@ public class GameManager : MonoBehaviour
                     Mathf.Clamp(newScreenPos.y, currentMap.bounds.min.y + cam.orthographicSize, currentMap.bounds.max.y - cam.orthographicSize),
                     newScreenPos.z);
 
-            if(Input.GetAxis("Mouse ScrollWheel") != 0)
+            float smoothSpeed = 0.02f;
+
+            Vector3 updatedScreenPos = Vector3.SmoothDamp(newScreenPos, worldMousePos, ref smoothEffect, smoothSpeed);
+
+            print(smoothEffect);
+            updatedScreenPos.z = cam.transform.position.z;
+
+            if (Input.GetAxis("Mouse ScrollWheel") != 0)
             {
-                Vector3 smoothEffect = Vector3.zero;
-                float smoothSpeed = 0.02f;
-
-                Vector3 updatedScreenPos = Vector3.SmoothDamp(newScreenPos, worldMousePos, ref smoothEffect, smoothSpeed);
-                updatedScreenPos.z = cam.transform.position.z;
-
                 cam.transform.position = updatedScreenPos;
-
-                print(smoothEffect);
             }
+
             else
             {
                 cam.transform.position = newScreenPos;
             }
-
-            print(worldMousePos);
 
             oldMousePos = mousePos;
         }
