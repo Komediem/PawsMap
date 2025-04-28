@@ -12,7 +12,6 @@ public class CloudMovement : MonoBehaviour
     [Space]
     [SerializeField] private int MinCloudOpacity;
     [SerializeField] private int MaxCloudOpacity = 255;
-    [SerializeField] private BoxCollider2D Collider;
     [SerializeField] private bool IsTopBottomCloud = false;
 
     [Header("Private Data")]
@@ -49,13 +48,14 @@ public class CloudMovement : MonoBehaviour
         }
     }
 
+    public GameObject TpObject;
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("ye");
-    }
+        if (col.tag == "LoopClouds")
+        {
+            Debug.Log("Tp Back");
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("ahhhh");
+            transform.position = TpObject.transform.position;
+        }
     }
 }

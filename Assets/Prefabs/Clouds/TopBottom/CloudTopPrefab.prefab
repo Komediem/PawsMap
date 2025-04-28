@@ -99,16 +99,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d343b494ad98ef743b750ba4fbf5b0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinSpeed: 0.7
-  MaxSpeed: 1
+  MinSpeed: 0.1
+  MaxSpeed: 0.1
   MinCloudOpacity: 255
   MaxCloudOpacity: 255
-  Collider: {fileID: 0}
   IsTopBottomCloud: 1
   Speed: 0
   Objective: {x: 0, y: 0}
   CloudLayer: 0
   ID: 0
+  TpObject: {fileID: 0}
 --- !u!61 &8949579484910480301
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -30, y: 0}
