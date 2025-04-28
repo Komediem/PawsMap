@@ -177,6 +177,7 @@ public class GameManager : MonoBehaviour
         else if(!isIntro)
         {
             var v = Input.GetAxis("Mouse ScrollWheel");
+            var worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             currentSize = Mathf.Clamp(currentSize - v * sensibilityScrollWheel, minSize, maxSize);
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, zoomSmoothTime);
@@ -186,7 +187,24 @@ public class GameManager : MonoBehaviour
                     Mathf.Clamp(newScreenPos.y, currentMap.bounds.min.y + cam.orthographicSize, currentMap.bounds.max.y - cam.orthographicSize),
                     newScreenPos.z);
 
-            cam.transform.position = newScreenPos;
+            if(Input.GetAxis("Mouse ScrollWheel") != 0)
+            {
+                Vector3 smoothEffect = Vector3.zero;
+                float smoothSpeed = 0.02f;
+
+                Vector3 updatedScreenPos = Vector3.SmoothDamp(newScreenPos, worldMousePos, ref smoothEffect, smoothSpeed);
+                updatedScreenPos.z = cam.transform.position.z;
+
+                cam.transform.position = updatedScreenPos;
+
+                print(smoothEffect);
+            }
+            else
+            {
+                cam.transform.position = newScreenPos;
+            }
+
+            print(worldMousePos);
 
             oldMousePos = mousePos;
         }
@@ -452,18 +470,9 @@ public class GameManager : MonoBehaviour
 
     #region Intro
 
-    public void IntroStart()
+    public void PassToIntroPanel()
     {
         introPanel.GetComponent<Animator>().SetBool("IsStarted?", true);
-        currentSize = 20;
-        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, 5);
-        StartCoroutine(IntroEnd());
-    }
-
-    IEnumerator IntroEnd()
-    {
-        yield return new WaitForSeconds(0.5f);
-
         introPanel.SetActive(false);
         infoTextPanel.SetActive(true);
     }
@@ -471,6 +480,26 @@ public class GameManager : MonoBehaviour
     public void StartPlaying()
     {
         infoTextPanel.SetActive(false);
+
+        currentSize = 20;
+
+        StartCoroutine(IntroEnd());
+    }
+
+    IEnumerator IntroEnd()
+    {
+        infoTextPanel.SetActive(false);
+        float zoomVel = 0;
+        float zoomSpeed = 0.4f;
+
+        while (cam.orthographicSize > currentSize + 0.03)
+        {
+            cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, zoomSpeed);
+
+            yield return null;
+        }
+
+        print("Finish intro");
         isIntro = false;
     }
 
