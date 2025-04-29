@@ -173,6 +173,18 @@ public class GameManager : MonoBehaviour
             {
                 SlideNextRight();
             }
+
+            /*if(Input.GetMouseButton(0))
+            {
+                if(currentInterestPoint.isResearches)
+                {
+                    researchButton.Select();
+                }
+                else
+                {
+                    illustrationButton.Select();
+                }
+            }*/
         }
         
         else if(!isIntro)
