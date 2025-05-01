@@ -17,10 +17,16 @@ MonoBehaviour:
   climaticCondition: Tropical humide
   faunaAndFlora: Luxuriante, semi-aquatique
   frequentRessources: Fruits exotiques
-  dangerosity: "Extr\xEAme"
+  dangerosity: "Elev\xE9"
   iconBase: {fileID: 21300000, guid: ce35a0b4dd5bb1a4c8147ed82fef19d1, type: 3}
   iconHovered: {fileID: 21300000, guid: b0d8a661488459241a4d57913adbb427, type: 3}
-  Researches: []
-  Illustrations: []
+  Researches:
+  - image: {fileID: 21300000, guid: bc0fd808cb64b0943ac22a9a7c5874a6, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: 662dff91eaa89e241929965587b58894, type: 3}
+    imageDescription: 
+  Illustrations:
+  - image: {fileID: 21300000, guid: 0b322f41f4c96a54e93c954177ef6bb9, type: 3}
+    imageDescription: 
   currentImages: []
   isResearches: 0

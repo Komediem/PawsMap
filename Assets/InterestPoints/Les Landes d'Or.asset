@@ -10,17 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16cde9223ed5014459b32ae1934989ab, type: 3}
-  m_Name: Les landes d'or
+  m_Name: Les Landes d'Or
   m_EditorClassIdentifier: 
   title: LES LANDES D'OR
-  subtitle: 
-  climaticCondition: 
-  faunaAndFlora: 
-  frequentRessources: 
-  dangerosity: 
+  subtitle: "LE D\xC9SERT SILENCIEUX"
+  climaticCondition: "Aridit\xE9 extr\xEAme"
+  faunaAndFlora: Arbre mourant, insectes
+  frequentRessources: "Bois p\xE9trifi\xE9, ossements "
+  dangerosity: Faible
   iconBase: {fileID: 21300000, guid: ce35a0b4dd5bb1a4c8147ed82fef19d1, type: 3}
   iconHovered: {fileID: 21300000, guid: b0d8a661488459241a4d57913adbb427, type: 3}
-  Researches: []
-  Illustrations: []
-  currentImages: []
+  Researches:
+  - image: {fileID: 21300000, guid: 77788ac06857e1e46b42c47553651395, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: a2127680b4b1df342bd920be780058a3, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: 140f006311f000e44956a7264cb97377, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: 24f7d1f1d3ee5454d8629df1339f6523, type: 3}
+    imageDescription: 
+  Illustrations:
+  - image: {fileID: 21300000, guid: 056862e4186d38a4cb7dede9078e7d7a, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: 88d7092d7da800c4b8740c333109a6bb, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: d2faaa3a8b911c949a991a25be2c2801, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: e65162e51aa74f5479973e5b0e9d885b, type: 3}
+    imageDescription: 
+  currentImages:
+  - image: {fileID: 21300000, guid: 056862e4186d38a4cb7dede9078e7d7a, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: 88d7092d7da800c4b8740c333109a6bb, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: d2faaa3a8b911c949a991a25be2c2801, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: e65162e51aa74f5479973e5b0e9d885b, type: 3}
+    imageDescription: 
   isResearches: 0

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16cde9223ed5014459b32ae1934989ab, type: 3}
-  m_Name: Le Vortex
+  m_Name: Oeil De L'Abysse
   m_EditorClassIdentifier: 
-  title: LE VORTEX
+  title: L'OEIL DE L'ABYSSE
   subtitle: 
   climaticCondition: 
   faunaAndFlora: 
