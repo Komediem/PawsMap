@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public InterestPointDatas currentInterestPoint;
     [SerializeField] private Button researchButton;
     [SerializeField] private Button illustrationButton;
+    private bool isOnButton;
     #endregion
 
     #region Dots
@@ -71,9 +72,7 @@ public class GameManager : MonoBehaviour
 
     #region movement and velocities
     Vector3 oldMousePos = Vector3.zero;
-    Vector3 newTargetPos = Vector3.zero;
     private float zoomVel = 0;
-    private Vector3 moveVel = Vector3.zero;
     #endregion
 
     #region Camera Parameters
@@ -90,6 +89,7 @@ public class GameManager : MonoBehaviour
     private float currentSensibility;
     [SerializeField] private float sensibilityScrollWheel; 
     [SerializeField] private float zoomSmoothTime;
+    [SerializeField] private float zoomMovementSmoothTime;
     [SerializeField] private float moveSmoothTime;
     [SerializeField] private Vector3 smoothEffect;
     public AnimationCurve SmoothBorder;
@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
                 SlideNextRight();
             }
 
-            /*if(Input.GetMouseButton(0))
+            if(Input.GetMouseButton(0) && !isOnButton)
             {
                 if(currentInterestPoint.isResearches)
                 {
@@ -184,13 +184,14 @@ public class GameManager : MonoBehaviour
                 {
                     illustrationButton.Select();
                 }
-            }*/
+            }
         }
         
         else if(!isIntro)
         {
             var v = Input.GetAxis("Mouse ScrollWheel");
             var worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //Vector3 zoomMovementVel = Vector3.zero;
 
             currentSize = Mathf.Clamp(currentSize - v * sensibilityScrollWheel, minSize, maxSize);
             cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, currentSize, ref zoomVel, zoomSmoothTime);
@@ -200,22 +201,14 @@ public class GameManager : MonoBehaviour
                     Mathf.Clamp(newScreenPos.y, currentMap.bounds.min.y + cam.orthographicSize, currentMap.bounds.max.y - cam.orthographicSize),
                     newScreenPos.z);
 
-            float smoothSpeed = 0.02f;
-
-            Vector3 updatedScreenPos = Vector3.SmoothDamp(newScreenPos, worldMousePos, ref smoothEffect, smoothSpeed);
-
-            print(smoothEffect);
-            updatedScreenPos.z = cam.transform.position.z;
-
-            if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            /*if(Input.GetAxis("Mouse ScrollWheel") != 0 || zoomMovementVel != Vector3.zero)
             {
-                cam.transform.position = updatedScreenPos;
-            }
+                newScreenPos = Vector3.SmoothDamp(cam.transform.position, worldMousePos, ref zoomMovementVel, zoomMovementSmoothTime);
+            }*/
 
-            else
-            {
-                cam.transform.position = newScreenPos;
-            }
+            //print(zoomMovementVel);
+
+            cam.transform.position = newScreenPos;
 
             oldMousePos = mousePos;
         }
@@ -324,6 +317,16 @@ public class GameManager : MonoBehaviour
         */
     }
 
+    public void IsOnAButton()
+    {
+        isOnButton = true;  
+    }
+
+    public void IsNotOnButton()
+    {
+        isOnButton = false;
+    }
+
     public void SlideNextRight()
     {
         currentImage = (currentImage + 1) % currentInterestPoint.currentImages.Count;
@@ -427,8 +430,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        print("SpawnDot");
-
         UpdateCurrentDot();
     }
 
@@ -510,7 +511,6 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        print("Finish intro");
         isIntro = false;
     }
 
