@@ -312,12 +312,12 @@ public class GameManager : MonoBehaviour
 
         float ratio = placeImage.gameObject.GetComponent<RectTransform>().rect.width * currentInterestPoint.currentImages[currentImage].image.rect.height / currentInterestPoint.currentImages[currentImage].image.rect.width;
         placeImage.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(placeImage.gameObject.GetComponent<RectTransform>().rect.width, ratio);
-
+        /*
         float ratioPrev = previousImage.gameObject.GetComponent<RectTransform>().rect.width * currentInterestPoint.currentImages[currentInterestPoint.currentImages.Count - 1].image.rect.height / currentInterestPoint.currentImages[currentInterestPoint.currentImages.Count - 1].image.rect.width;
         previousImage.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(previousImage.gameObject.GetComponent<RectTransform>().rect.width, ratioPrev);
 
         float ratioNext = nextImage.gameObject.GetComponent<RectTransform>().rect.width * currentInterestPoint.currentImages[currentImage + 1].image.rect.height / currentInterestPoint.currentImages[currentImage + 1].image.rect.width;
-        nextImage.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(nextImage.gameObject.GetComponent<RectTransform>().rect.width, ratioNext);
+        nextImage.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(nextImage.gameObject.GetComponent<RectTransform>().rect.width, ratioNext);*/
     }
 
     public void IsOnAButton()
