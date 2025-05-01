@@ -310,16 +310,14 @@ public class GameManager : MonoBehaviour
             nextImage.SetActive(false);
         }
 
-        float ratio = 1200 * currentInterestPoint.currentImages[currentImage].image.rect.height / currentInterestPoint.currentImages[currentImage].image.rect.width;
-        placeImage.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1200, ratio);
+        float ratio = placeImage.gameObject.GetComponent<RectTransform>().rect.width * currentInterestPoint.currentImages[currentImage].image.rect.height / currentInterestPoint.currentImages[currentImage].image.rect.width;
+        placeImage.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(placeImage.gameObject.GetComponent<RectTransform>().rect.width, ratio);
 
-        /*
-        float ratioPrev = currentInterestPoint.currentImages[currentInterestPoint.currentImages.Count - 1].image.rect.height / currentInterestPoint.currentImages[currentInterestPoint.currentImages.Count - 1].image.rect.width;
-        previousImage.transform.localScale = new Vector3(1, ratioPrev * 2, 1);
+        float ratioPrev = previousImage.gameObject.GetComponent<RectTransform>().rect.width * currentInterestPoint.currentImages[currentInterestPoint.currentImages.Count - 1].image.rect.height / currentInterestPoint.currentImages[currentInterestPoint.currentImages.Count - 1].image.rect.width;
+        previousImage.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(previousImage.gameObject.GetComponent<RectTransform>().rect.width, ratioPrev);
 
-        float ratioNext = currentInterestPoint.currentImages[currentImage + 1].image.rect.height / currentInterestPoint.currentImages[currentImage + 1].image.rect.width;
-        nextImage.transform.localScale = new Vector3(1, ratioNext * 2, 1);
-        */
+        float ratioNext = nextImage.gameObject.GetComponent<RectTransform>().rect.width * currentInterestPoint.currentImages[currentImage + 1].image.rect.height / currentInterestPoint.currentImages[currentImage + 1].image.rect.width;
+        nextImage.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(nextImage.gameObject.GetComponent<RectTransform>().rect.width, ratioNext);
     }
 
     public void IsOnAButton()
