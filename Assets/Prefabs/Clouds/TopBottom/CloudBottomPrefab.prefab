@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d343b494ad98ef743b750ba4fbf5b0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinSpeed: 0.1
-  MaxSpeed: 0.1
+  MinSpeed: 0.07
+  MaxSpeed: 0.07
   MinCloudOpacity: 255
   MaxCloudOpacity: 255
   IsTopBottomCloud: 1
