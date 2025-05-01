@@ -214,6 +214,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StopGame()
+    {
+        Application.Quit();
+    }
+
     #region Info Panel Utils
 
     public void OpenInfoPanel(InterestPointDatas interestPointDatasValue)
@@ -414,10 +419,7 @@ public class GameManager : MonoBehaviour
                 Destroy(dot);
             }
 
-            for(var i = 0; i < currentDots.Count; i++)
-            {
-                currentDots.RemoveAt(i);
-            }
+            currentDots.Clear();
         }
 
         //Create white dots depending on the number of images
