@@ -305,8 +305,8 @@ public class GameManager : MonoBehaviour
             nextImage.SetActive(false);
         }
 
-        float ratio = currentInterestPoint.currentImages[currentImage].image.rect.height / currentInterestPoint.currentImages[currentImage].image.rect.width;
-        placeImage.transform.localScale = new Vector3(1, ratio * 2.5f, 1);
+        float ratio = 1200 * currentInterestPoint.currentImages[currentImage].image.rect.height / currentInterestPoint.currentImages[currentImage].image.rect.width;
+        placeImage.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1200, ratio);
 
         /*
         float ratioPrev = currentInterestPoint.currentImages[currentInterestPoint.currentImages.Count - 1].image.rect.height / currentInterestPoint.currentImages[currentInterestPoint.currentImages.Count - 1].image.rect.width;
