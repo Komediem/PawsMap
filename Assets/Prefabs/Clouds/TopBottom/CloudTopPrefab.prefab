@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 31389f7969f37514ea2cebd96e192fa4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,10 +104,10 @@ MonoBehaviour:
   MinCloudOpacity: 255
   MaxCloudOpacity: 255
   IsTopBottomCloud: 1
-  HidingThreshold: 1
+  MinHidingThreshold: 6
+  MaxHidingThreshold: 6
   Speed: 0
   Objective: {x: 0, y: 0}
-  CloudLayer: 0
   ID: 0
   TpObject: {fileID: 0}
 --- !u!61 &8949579484910480301

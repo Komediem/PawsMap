@@ -102,9 +102,9 @@ MonoBehaviour:
   MinCloudOpacity: 30
   MaxCloudOpacity: 120
   IsTopBottomCloud: 0
-  HidingThreshold: 105
+  MinHidingThreshold: 8.5
+  MaxHidingThreshold: 15
   Speed: 0
   Objective: {x: 0, y: 0}
-  CloudLayer: 0
   ID: 0
   TpObject: {fileID: 0}

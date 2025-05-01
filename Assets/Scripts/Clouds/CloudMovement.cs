@@ -7,43 +7,49 @@ using UnityEngine.UIElements;
 public class CloudMovement : MonoBehaviour
 {
 
-    [SerializeField] public float MinSpeed;
-    [SerializeField] public float MaxSpeed;
+    [HideInInspector] public float MinSpeed;
+    [HideInInspector] public float MaxSpeed;
     [Space]
     [SerializeField] private int MinCloudOpacity;
     [SerializeField] private int MaxCloudOpacity = 255;
     [SerializeField] private bool IsTopBottomCloud = false;
-    [SerializeField] private int HidingThreshold;
+    
+    private float HidingThreshold;
+    [Space]
+    [SerializeField] private float MinHidingThreshold;
+    [SerializeField] private float MaxHidingThreshold;
+
 
     [Header("Private Data")]
     public float Speed;
-    [SerializeField] public Vector2 Objective;
-    [SerializeField] private int CloudLayer;
-    [SerializeField] public int ID;
-    private int Opacity;
+    [HideInInspector] public Vector2 Objective;
+    [HideInInspector] public int ID;
+    private float Opacity;
 
     void Start()
     {
         Speed = Random.Range(MinSpeed, MaxSpeed);
         Speed = Speed * Time.deltaTime;
 
-        int CloudRandomOpacity = Random.Range(MinCloudOpacity, MaxCloudOpacity);
+        float CloudRandomOpacity = Random.Range(MinCloudOpacity, MaxCloudOpacity);
         CloudRandomOpacity = CloudRandomOpacity / 255;
         GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, CloudRandomOpacity);
         Opacity = CloudRandomOpacity;
+
+        HidingThreshold = Random.Range(MinHidingThreshold, MaxHidingThreshold);
     }
 
     void Update()
     {
-        if (GameManager.Instance.currentSize > HidingThreshold)
+        if (GameManager.Instance.currentSize < HidingThreshold)
         {
-            float i = Mathf.Lerp(Opacity, 0, Time.deltaTime);
+            float i = Mathf.Lerp(this.GetComponent<SpriteRenderer>().color.a, 0, Time.deltaTime * 5);
             this.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, i);
         }
-        else if (GameManager.Instance.currentSize <= HidingThreshold)
+        else if (GameManager.Instance.currentSize > HidingThreshold)
         {
-            //this.GetComponent<SpriteRenderer>().enabled = true;
-
+            float i = Mathf.Lerp(this.GetComponent<SpriteRenderer>().color.a, Opacity, Time.deltaTime * 5);
+            this.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, i);
         }
 
 
