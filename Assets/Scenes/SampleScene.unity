@@ -3575,8 +3575,8 @@ MonoBehaviour:
   - {fileID: 8340905721860129411, guid: e048fb4d2bb416149841e60d22c322cd, type: 3}
   - {fileID: 8340905721860129411, guid: bf755b2e4c256ae4c9a5023fd2c4cfc3, type: 3}
   - {fileID: 8340905721860129411, guid: 1bcb6cbf90244d048832a6c4786acce6, type: 3}
-  MinCloudSpeed: 0.15
-  MaxCloudSpeed: 0.6
+  MinCloudSpeed: 0.18
+  MaxCloudSpeed: 0.55
   MinCloudScale: 0.3
   MaxCloudScale: 0.7
 --- !u!1 &1329951982
@@ -3851,6 +3851,10 @@ PrefabInstance:
     - target: {fileID: 2973382125122482121, guid: 9e2f595595313d7468b95a1010cf3c92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075589969174937041, guid: 9e2f595595313d7468b95a1010cf3c92, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8340905721860129411, guid: 9e2f595595313d7468b95a1010cf3c92, type: 3}
       propertyPath: m_Name
