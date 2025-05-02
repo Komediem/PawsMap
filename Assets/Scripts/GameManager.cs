@@ -229,17 +229,15 @@ public class GameManager : MonoBehaviour
         infoPanelIsOpen = true;
         imageHolder.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
+
+        SpawnTypeOfImage(interestPointDatasValue);
         AssignDatasInterestPoint(interestPointDatasValue);
 
         SpawnCurrentDot();
-        SpawnTypeOfImage();
     }
 
     public void AssignDatasInterestPoint(InterestPointDatas interestPointDatasValue)
     {
-        //Set Datas to interest point clicked
-        currentInterestPoint = interestPointDatasValue;
-
         //Set All Texts
         Title.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.title;
         RegionName.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.subtitle;
@@ -518,8 +516,11 @@ public class GameManager : MonoBehaviour
 
     #region ResearchToIllustration
 
-    private void SpawnTypeOfImage()
+    private void SpawnTypeOfImage(InterestPointDatas interestPointDatasValue)
     {
+        //Set Datas to interest point clicked
+        currentInterestPoint = interestPointDatasValue;
+
         //Set base images to illustrations
         currentInterestPoint.currentImages = currentInterestPoint.Illustrations;
         currentInterestPoint.isResearches = false;
