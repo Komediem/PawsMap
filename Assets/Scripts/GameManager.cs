@@ -95,6 +95,13 @@ public class GameManager : MonoBehaviour
     public AnimationCurve SmoothBorder;
     #endregion
 
+    #region Cursors
+    [Header("Cursors")]
+    [SerializeField] private Texture2D cursorTextureDefault;
+    [SerializeField] private Texture2D cursorTextureLoop;
+    [SerializeField] private Vector2 clickPosition = Vector2.zero;
+    #endregion
+
     private void Awake()
     {
         if(Instance == null)
@@ -106,6 +113,8 @@ public class GameManager : MonoBehaviour
         blackBackground.SetActive(false);
         canSlide = true;
         isIntro = true;
+
+        SetToDefaultCursor();
     }
 
     // Update is called once per frame
@@ -124,6 +133,7 @@ public class GameManager : MonoBehaviour
             if(infoPanelIsOpen && Input.GetMouseButton(1))
             {
                 CloseInfoPanel();
+                SetToDefaultCursor();
             }
 
             if(infoPanelIsOpen && Input.GetMouseButton(0))
@@ -212,6 +222,16 @@ public class GameManager : MonoBehaviour
 
             oldMousePos = mousePos;
         }
+    }
+
+    public void SetToLoopCursor()
+    {
+        Cursor.SetCursor(cursorTextureLoop, clickPosition, CursorMode.Auto);
+    }
+
+    public void SetToDefaultCursor()
+    {
+        Cursor.SetCursor(cursorTextureDefault, clickPosition, CursorMode.Auto );
     }
 
     public void Reload()
