@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -214,9 +214,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StopGame()
+    public void Reload()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Map");
     }
 
     #region Info Panel Utils
