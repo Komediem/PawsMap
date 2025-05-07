@@ -16,6 +16,8 @@ public class InterestPointDatas : ScriptableObject
     public Sprite iconBase;
     public Sprite iconHovered;
 
+    public InterestPointType type;
+
     public List<InterestPointMultipleDatas> Researches;
     public List<InterestPointMultipleDatas> Illustrations;
 
@@ -28,4 +30,11 @@ public struct InterestPointMultipleDatas
 {
     public Sprite image;
     public string imageDescription; 
+}
+
+public enum InterestPointType
+{
+    major,
+    medium,
+    minor
 }

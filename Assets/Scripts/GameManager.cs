@@ -36,13 +36,16 @@ public class GameManager : MonoBehaviour
     public GameObject previousImage;
     public GameObject nextImage;
     public Button quitButton;
+    public Button endGameButton;
     [HideInInspector] public bool infoPanelIsOpen;
     [HideInInspector] public bool isOnDetailedImage;
     [HideInInspector] public bool canSlide;
-    private int currentImage;
+    [HideInInspector] public int currentImage;
     [HideInInspector] public InterestPointDatas currentInterestPoint;
     [SerializeField] private Button researchButton;
     [SerializeField] private Button illustrationButton;
+    [SerializeField] private Sprite backgroundPanelMajor;
+    [SerializeField] private Sprite backgroundPanelMedium;
     private bool isOnButton;
     #endregion
 
@@ -57,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    #region Info Panel Texts
+    #region Info Panel Datas
 
     [Header("Info Panel Texts")]
     [SerializeField] private GameObject Title;
@@ -68,6 +71,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject FrequentRessources;
     [SerializeField] private GameObject Dangerosity;
     [SerializeField] private GameObject panelDescription;
+    [SerializeField] private GameObject panelDescriptionMediumPoint;
+    [SerializeField] private GameObject interestPointImportance;
+    [SerializeField] private Sprite interestPointMinor;
+    [SerializeField] private Sprite interestPointMedium;
+    [SerializeField] private Sprite interestPointMajor;
     #endregion
 
     #region movement and velocities
@@ -113,6 +121,7 @@ public class GameManager : MonoBehaviour
         blackBackground.SetActive(false);
         canSlide = true;
         isIntro = true;
+        endGameButton.gameObject.SetActive(false);
 
         SetToDefaultCursor();
     }
@@ -130,7 +139,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetMouseButton(1) || Input.GetMouseButton(0) && !isIntro)
         {
-            if(infoPanelIsOpen && Input.GetMouseButton(1))
+            if(infoPanelIsOpen && Input.GetMouseButtonDown(1))
             {
                 CloseInfoPanel();
                 SetToDefaultCursor();
@@ -153,16 +162,8 @@ public class GameManager : MonoBehaviour
                     //Get Size
                     borderMoveAlphaX = ((currentMap.bounds.max.x - cam.orthographicSize * cam.aspect) - (currentMap.bounds.min.x + cam.orthographicSize * cam.aspect));
 
-
                     borderMoveAlphaX /= 2;
-                    //Get the max distance
-                    float maxDist = Mathf.Abs(borderMoveAlphaX - mapBorder);
-
-
                     borderMoveAlphaX = Mathf.Abs(tempPos.x - borderMoveAlphaX);
-                    //Debug.Log(borderMoveAlphaX);
-
-                    borderMoveAlphaX = SmoothBorder.Evaluate(borderMoveAlphaX);
 
                     borderMoveAlphaX = 1;
 
@@ -200,7 +201,6 @@ public class GameManager : MonoBehaviour
         else if(!isIntro)
         {
             var v = Input.GetAxis("Mouse ScrollWheel");
-            var worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //Vector3 zoomMovementVel = Vector3.zero;
 
             currentSize = Mathf.Clamp(currentSize - v * sensibilityScrollWheel, minSize, maxSize);
@@ -226,12 +226,12 @@ public class GameManager : MonoBehaviour
 
     public void SetToLoopCursor()
     {
-        Cursor.SetCursor(cursorTextureLoop, clickPosition, CursorMode.Auto);
+        Cursor.SetCursor(cursorTextureLoop, clickPosition, CursorMode.ForceSoftware);
     }
 
     public void SetToDefaultCursor()
     {
-        Cursor.SetCursor(cursorTextureDefault, clickPosition, CursorMode.Auto );
+        Cursor.SetCursor(cursorTextureDefault, clickPosition, CursorMode.ForceSoftware);
     }
 
     public void Reload()
@@ -250,10 +250,45 @@ public class GameManager : MonoBehaviour
         imageHolder.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
 
+        if(interestPointDatasValue.type == InterestPointType.major)
+        {
+            researchButton.gameObject.SetActive(true);
+            illustrationButton.gameObject.SetActive(true);
+
+            infoPanel.GetComponent<Image>().sprite = backgroundPanelMajor;
+
+            //panelDescription.transform.localPosition = new Vector3(335, -680, 0);
+            interestPointImportance.GetComponent<Image>().sprite = interestPointMajor;
+        }
+        else if (interestPointDatasValue.type == InterestPointType.medium)
+        {
+            researchButton.gameObject.SetActive(false);
+            illustrationButton.gameObject.SetActive(false);
+
+            infoPanel.GetComponent<Image>().sprite = backgroundPanelMedium;
+
+            //panelDescription.transform.localPosition = new Vector3(335, -500, 0);
+            interestPointImportance.GetComponent<Image>().sprite = interestPointMedium;
+        }
+        else if (interestPointDatasValue.type == InterestPointType.minor)
+        {
+            researchButton.gameObject.SetActive(false);
+            illustrationButton.gameObject.SetActive(false);
+
+            infoPanel.GetComponent<Image>().sprite = backgroundPanelMedium;
+
+            //panelDescription.transform.localPosition = new Vector3(335, -500, 0);
+            interestPointImportance.GetComponent<Image>().sprite = interestPointMinor;
+        }
+
         SpawnTypeOfImage(interestPointDatasValue);
         AssignDatasInterestPoint(interestPointDatasValue);
 
         SpawnCurrentDot();
+        if(currentImage == 0)
+        {
+            previousImage.SetActive(false);
+        }
     }
 
     public void AssignDatasInterestPoint(InterestPointDatas interestPointDatasValue)
@@ -267,7 +302,23 @@ public class GameManager : MonoBehaviour
         FrequentRessources.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.frequentRessources;
         Dangerosity.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.dangerosity;
 
-        panelDescription.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.currentImages[currentImage].imageDescription;
+        if(interestPointDatasValue.type == InterestPointType.major)
+        {
+            panelDescriptionMediumPoint.SetActive(false);
+            panelDescription.SetActive(true);
+            panelDescription.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.currentImages[currentImage].imageDescription;
+
+        }
+
+        else
+        {
+            panelDescriptionMediumPoint.SetActive(true);
+            panelDescription.SetActive(false);  
+            panelDescriptionMediumPoint.GetComponent<TextMeshProUGUI>().text = interestPointDatasValue.currentImages[currentImage].imageDescription;
+        }
+
+
+
         PlaceIcon.GetComponent<Image>().sprite = interestPointDatasValue.iconHovered;
 
         //Assign Image
@@ -350,13 +401,13 @@ public class GameManager : MonoBehaviour
 
     public void SlideNextRight()
     {
-        currentImage = (currentImage + 1) % currentInterestPoint.currentImages.Count;
-
-        placeImage.GetComponent<Animator>().SetBool("IsSwitching", true);
-
-        canSlide = false;
-
-        UpdateCurrentDot();
+        if(currentImage < currentInterestPoint.currentImages.Count - 1)
+        {
+            currentImage += 1;
+            placeImage.GetComponent<Animator>().SetBool("IsSwitching", true);
+            canSlide = false;
+            UpdateCurrentDot();
+        }
     }
 
     public void SlideNextLeft()
@@ -364,16 +415,10 @@ public class GameManager : MonoBehaviour
         if (currentImage > 0)
         {
             currentImage -= 1;
+            canSlide = false;
+            placeImage.GetComponent<Animator>().SetBool("IsSwitchingBackward", true);
+            UpdateCurrentDot();
         }
-        else
-        {
-            currentImage = currentInterestPoint.currentImages.Count - 1;
-        }
-
-        canSlide = false;
-        placeImage.GetComponent<Animator>().SetBool("IsSwitchingBackward", true);
-
-        UpdateCurrentDot();
     }
 
     public void CloseInfoPanel()
@@ -470,7 +515,7 @@ public class GameManager : MonoBehaviour
     public void SmoothZoomInterestPoint(GameObject interestPointClicked, InterestPointDatas interestPointDatasValue)
     {
 
-        StartCoroutine(LerpFunction(interestPointClicked, interestPointDatasValue, 6, 0.2f));
+        StartCoroutine(LerpFunction(interestPointClicked, interestPointDatasValue, 6, 0.4f));
     }
 
     IEnumerator LerpFunction(GameObject interestPointClicked, InterestPointDatas interestPointDatasValue, float targetValue, float duration)
@@ -502,9 +547,12 @@ public class GameManager : MonoBehaviour
 
     public void PassToIntroPanel()
     {
+        SetToDefaultCursor();
         introPanel.GetComponent<Animator>().SetBool("IsStarted?", true);
         introPanel.SetActive(false);
         infoTextPanel.SetActive(true);
+
+        this.gameObject.GetComponent<AudioSource>().Play();
     }
 
     public void StartPlaying()
@@ -530,6 +578,7 @@ public class GameManager : MonoBehaviour
         }
 
         isIntro = false;
+        endGameButton.gameObject.SetActive(true);
     }
 
     #endregion
@@ -561,6 +610,8 @@ public class GameManager : MonoBehaviour
 
             AssignDatasInterestPoint(currentInterestPoint);
             SpawnCurrentDot();
+
+            previousImage.SetActive(false);
         }
     }
 
@@ -576,6 +627,8 @@ public class GameManager : MonoBehaviour
 
             AssignDatasInterestPoint(currentInterestPoint);
             SpawnCurrentDot();
+
+            previousImage.SetActive(false);
         }
     }
 

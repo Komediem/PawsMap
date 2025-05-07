@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cde9223ed5014459b32ae1934989ab, type: 3}
+  m_Name: Le Lagon Emeraude
+  m_EditorClassIdentifier: 
+  title: LE LAGON EMERAUDE
+  subtitle: "L'ARCHIPEL MAKORA\xEE"
+  climaticCondition: Tropical humide
+  faunaAndFlora: Luxuriante, semi-aquatique
+  frequentRessources: Fruits exotiques
+  dangerosity: "Elev\xE9"
+  iconBase: {fileID: 21300000, guid: 192dcc4f0a9ac3b40b1e0f7c9bf426ea, type: 3}
+  iconHovered: {fileID: 21300000, guid: db3c43dc506394643a12bbe008f53299, type: 3}
+  Researches:
+  - image: {fileID: 21300000, guid: bc0fd808cb64b0943ac22a9a7c5874a6, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: 662dff91eaa89e241929965587b58894, type: 3}
+    imageDescription: 
+  Illustrations:
+  - image: {fileID: 21300000, guid: 0b322f41f4c96a54e93c954177ef6bb9, type: 3}
+    imageDescription: 
+  currentImages:
+  - image: {fileID: 21300000, guid: bc0fd808cb64b0943ac22a9a7c5874a6, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: 662dff91eaa89e241929965587b58894, type: 3}
+    imageDescription: 
+  isResearches: 1

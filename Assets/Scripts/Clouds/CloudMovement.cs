@@ -96,7 +96,6 @@ public class CloudMovement : MonoBehaviour
 
             if(GetComponent<SpriteRenderer>().color.a <= i)
             {
-                Debug.Log("HAAAHHHHHHH");
                 Destroy(gameObject);
             }
         }
@@ -108,12 +107,10 @@ public class CloudMovement : MonoBehaviour
         {
             float i = Mathf.Lerp(this.GetComponent<SpriteRenderer>().color.a, Opacity, Time.deltaTime / 10);
             this.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, i);
-            Debug.Log("AHHHH");
         }
         else
         {
             IsAppearing = false;
-            Debug.Log("A");
         }
     }
 
