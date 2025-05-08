@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: Oeil De L'Abysse
   m_EditorClassIdentifier: 
   title: L'OEIL DE L'ABYSSE
-  subtitle: 
-  climaticCondition: ???
-  faunaAndFlora: ???
-  frequentRessources: ???
-  dangerosity: ???
+  subtitle: L'ABYSSE BLEUE
+  climaticCondition: Chaotique, orageux
+  faunaAndFlora: Instable
+  frequentRessources: Cristaux d'Azur
+  dangerosity: "Extr\xEAme"
   iconBase: {fileID: 21300000, guid: 9b34e47acf1df584e98be0aff77e32bd, type: 3}
   iconHovered: {fileID: 21300000, guid: 5f0e785b496210440801210e9a5b4c60, type: 3}
+  type: 0
   Researches: []
-  Illustrations: []
+  Illustrations:
+  - image: {fileID: 21300000, guid: c10c23e62c9e2b14f97c19b0e0fffc88, type: 3}
+    imageDescription: 
   currentImages: []
   isResearches: 0

@@ -21,7 +21,11 @@ MonoBehaviour:
   iconBase: {fileID: 21300000, guid: 0f16f9cd85ff2d74b97bdaeaf97e00d3, type: 3}
   iconHovered: {fileID: 21300000, guid: 6fd365e63c305654a8515a8441afd52d, type: 3}
   type: 0
-  Researches: []
+  Researches:
+  - image: {fileID: 21300000, guid: d6582ccd54504774bae9aeb0792dc369, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: db077ea9fa3a9464eb3a0147527c2d2f, type: 3}
+    imageDescription: 
   Illustrations: []
   currentImages: []
   isResearches: 0

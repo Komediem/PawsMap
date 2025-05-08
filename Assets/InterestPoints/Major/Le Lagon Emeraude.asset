@@ -20,6 +20,7 @@ MonoBehaviour:
   dangerosity: "Elev\xE9"
   iconBase: {fileID: 21300000, guid: 192dcc4f0a9ac3b40b1e0f7c9bf426ea, type: 3}
   iconHovered: {fileID: 21300000, guid: db3c43dc506394643a12bbe008f53299, type: 3}
+  type: 0
   Researches:
   - image: {fileID: 21300000, guid: bc0fd808cb64b0943ac22a9a7c5874a6, type: 3}
     imageDescription: 
@@ -28,9 +29,11 @@ MonoBehaviour:
   Illustrations:
   - image: {fileID: 21300000, guid: 0b322f41f4c96a54e93c954177ef6bb9, type: 3}
     imageDescription: 
+  - image: {fileID: 21300000, guid: aaaf4a1b310059549a71838d5eebc637, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: 028568e712d2e9947a09a1ce4dd468e2, type: 3}
+    imageDescription: 
   currentImages:
-  - image: {fileID: 21300000, guid: bc0fd808cb64b0943ac22a9a7c5874a6, type: 3}
+  - image: {fileID: 21300000, guid: 0b322f41f4c96a54e93c954177ef6bb9, type: 3}
     imageDescription: 
-  - image: {fileID: 21300000, guid: 662dff91eaa89e241929965587b58894, type: 3}
-    imageDescription: 
-  isResearches: 1
+  isResearches: 0
