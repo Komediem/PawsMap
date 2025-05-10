@@ -522,16 +522,19 @@ public class GameManager : MonoBehaviour
     {
         float time = 0;
         float speedZoom = 0;
-        float startValue = currentSize;
         Vector3 speed = Vector3.zero;
+        Color interestPointAlpha = interestPointClicked.GetComponent<SpriteRenderer>().color;
         Vector3 target = interestPointClicked.transform.position;
         target.z = cam.transform.position.z;
 
-        while (Vector3.Distance(cam.transform.position,target) > 0.03f)
+        while (Vector3.Distance(cam.transform.position,target) > 0.03f && Mathf.Abs(targetValue - cam.orthographicSize) > 0.05f)
         {
             cam.transform.position = Vector3.SmoothDamp(cam.transform.position, target, ref speed, duration);
             currentSize = Mathf.SmoothDamp(currentSize, targetValue, ref speedZoom, duration);
+            interestPointAlpha.a = 0;
+            interestPointClicked.GetComponent<SpriteRenderer>().color = interestPointAlpha;
 
+            print(interestPointClicked.GetComponent<SpriteRenderer>().color);
             time += Time.deltaTime;
 
             yield return null;
