@@ -9,11 +9,13 @@ public class CloudStorm : MonoBehaviour
     [SerializeField] private GameObject CloudCenter;
     [SerializeField] private float Speed;
     [SerializeField] private float HidingThreshold;
+    private float Opacity;
 
     // Start is called before the first frame update
     void Start()
     {
         Speed = Speed * Time.deltaTime;
+        Opacity = CloudCenter.GetComponent<SpriteRenderer>().color.a;
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class CloudStorm : MonoBehaviour
         }
         else if (GameManager.Instance.currentSize > HidingThreshold)
         {
-            float i = Mathf.Lerp(CloudCenter.GetComponent<SpriteRenderer>().color.a, 1, Time.deltaTime * 3);
+            float i = Mathf.Lerp(CloudCenter.GetComponent<SpriteRenderer>().color.a, Opacity, Time.deltaTime * 3);
             CloudCenter.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, i);
         }
     }
