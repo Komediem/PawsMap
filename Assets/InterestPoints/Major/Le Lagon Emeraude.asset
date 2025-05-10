@@ -23,16 +23,34 @@ MonoBehaviour:
   type: 0
   Researches:
   - image: {fileID: 21300000, guid: bc0fd808cb64b0943ac22a9a7c5874a6, type: 3}
-    imageDescription: 
+    imageDescription: "Grand l\xE9zard amphibie au dos plat, le Varkal avance lentement
+      sur terre mais nage avec puissance en surface, portant parfois de petites habitations.
+      Il est id\xE9al pour explorer les r\xE9gions isol\xE9es, mais seuls ceux poss\xE9dant
+      de puissants cristaux azur peuvent esp\xE9rer le dompter. "
   - image: {fileID: 21300000, guid: 662dff91eaa89e241929965587b58894, type: 3}
-    imageDescription: 
+    imageDescription: "Grand l\xE9zard amphibie au dos plat, le Varkal avance lentement
+      sur terre mais nage avec puissance en surface, portant parfois de petites habitations.
+      Il est id\xE9al pour explorer les r\xE9gions isol\xE9es, mais seuls ceux poss\xE9dant
+      de puissants cristaux azur peuvent esp\xE9rer le dompter. "
   Illustrations:
   - image: {fileID: 21300000, guid: 0b322f41f4c96a54e93c954177ef6bb9, type: 3}
-    imageDescription: 
+    imageDescription: "Au c\u0153ur de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
+      entre d\u2019imposantes arches de pierre v\xE9g\xE9talis\xE9es et des \xEEles
+      flottantes baign\xE9es d\u2019eaux turquoise. Un fragment de m\xE9t\xE9orite
+      azur repose au centre, diffusant une lumi\xE8re bleut\xE9e. Le lagon abrite
+      une faune marine vari\xE9e, entre bancs color\xE9s et cr\xE9atures massives. "
   - image: {fileID: 21300000, guid: aaaf4a1b310059549a71838d5eebc637, type: 3}
-    imageDescription: 
+    imageDescription: "Au c\u0153ur de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
+      entre d\u2019imposantes arches de pierre v\xE9g\xE9talis\xE9es et des \xEEles
+      flottantes baign\xE9es d\u2019eaux turquoise. Un fragment de m\xE9t\xE9orite
+      azur repose au centre, diffusant une lumi\xE8re bleut\xE9e. Le lagon abrite
+      une faune marine vari\xE9e, entre bancs color\xE9s et cr\xE9atures massives. "
   - image: {fileID: 21300000, guid: 028568e712d2e9947a09a1ce4dd468e2, type: 3}
-    imageDescription: 
+    imageDescription: "Au c\u0153ur de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
+      entre d\u2019imposantes arches de pierre v\xE9g\xE9talis\xE9es et des \xEEles
+      flottantes baign\xE9es d\u2019eaux turquoise. Un fragment de m\xE9t\xE9orite
+      azur repose au centre, diffusant une lumi\xE8re bleut\xE9e. Le lagon abrite
+      une faune marine vari\xE9e, entre bancs color\xE9s et cr\xE9atures massives. "
   currentImages:
   - image: {fileID: 21300000, guid: 0b322f41f4c96a54e93c954177ef6bb9, type: 3}
     imageDescription: 

@@ -24,6 +24,18 @@ MonoBehaviour:
   Researches: []
   Illustrations:
   - image: {fileID: 21300000, guid: c10c23e62c9e2b14f97c19b0e0fffc88, type: 3}
-    imageDescription: 
-  currentImages: []
+    imageDescription: "L\u2019\u0152il de l\u2019Abysse est le point d\u2019impact
+      originel, l\xE0 o\xF9 tout a commenc\xE9. Une temp\xEAte \xE9ternelle surplombe
+      cette r\xE9gion, rendant le climat chaotique et dangereux. Expos\xE9 \xE0 l'\xE9nergie
+      de \"L'\u0152il\", le paysage environnant se retrouve teint\xE9 d'un sinistre
+      pourpre. Nul n\u2019a jamais atteint le fond du gouffre. Ce qu\u2019il renferme
+      demeure un myst\xE8re absolu."
+  currentImages:
+  - image: {fileID: 21300000, guid: c10c23e62c9e2b14f97c19b0e0fffc88, type: 3}
+    imageDescription: "L\u2019\u0152il de l\u2019Abysse est le point d\u2019impact
+      originel, l\xE0 o\xF9 tout a commenc\xE9. Une temp\xEAte \xE9ternelle surplombe
+      cette r\xE9gion, rendant le climat chaotique et dangereux. Expos\xE9 \xE0 l'\xE9nergie
+      de \"L'Oeil\", le paysage environnant se retrouve teint\xE9 d'un sinistre pourpre.
+      Nul n\u2019a jamais atteint le fond du gouffre. Ce qu\u2019il renferme demeure
+      un myst\xE8re absolu."
   isResearches: 0

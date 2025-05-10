@@ -22,30 +22,70 @@ MonoBehaviour:
   iconHovered: {fileID: 21300000, guid: 37c8ff9dcce78ed4090595d74210f255, type: 3}
   type: 0
   Researches:
+  - image: {fileID: 21300000, guid: 24f7d1f1d3ee5454d8629df1339f6523, type: 3}
+    imageDescription: "Colosse tranquille des \xE9tendues arides, le Dromar parcourt
+      lentement les d\xE9serts de Pangaya \xE0 la recherche de fruits gorg\xE9s de
+      ros\xE9e. Son corps \xE9lanc\xE9, presque fr\xEAle malgr\xE9 sa taille, ne
+      supporte que des charges l\xE9g\xE8res, ce qui en fait un compagnon peu adapt\xE9
+      au transport lourd, mais id\xE9al pour les voyageurs patients."
+  - image: {fileID: 21300000, guid: 140f006311f000e44956a7264cb97377, type: 3}
+    imageDescription: "Colosse tranquille des \xE9tendues arides, le Dromar parcourt
+      lentement les d\xE9serts de Pangaya \xE0 la recherche de fruits gorg\xE9s de
+      ros\xE9e. Son corps \xE9lanc\xE9, presque fr\xEAle malgr\xE9 sa taille, ne
+      supporte que des charges l\xE9g\xE8res, ce qui en fait un compagnon peu adapt\xE9
+      au transport lourd, mais id\xE9al pour les voyageurs patients."
+  - image: {fileID: 21300000, guid: a2127680b4b1df342bd920be780058a3, type: 3}
+    imageDescription: "Colosse tranquille des \xE9tendues arides, le Dromar parcourt
+      lentement les d\xE9serts de Pangaya \xE0 la recherche de fruits gorg\xE9s de
+      ros\xE9e. Son corps \xE9lanc\xE9, presque fr\xEAle malgr\xE9 sa taille, ne
+      supporte que des charges l\xE9g\xE8res, ce qui en fait un compagnon peu adapt\xE9
+      au transport lourd, mais id\xE9al pour les voyageurs patients."
   - image: {fileID: 21300000, guid: 77788ac06857e1e46b42c47553651395, type: 3}
     imageDescription: 
-  - image: {fileID: 21300000, guid: a2127680b4b1df342bd920be780058a3, type: 3}
+  - image: {fileID: 21300000, guid: af997e979bf27a64ebf8ee5790a33b4a, type: 3}
     imageDescription: 
-  - image: {fileID: 21300000, guid: 140f006311f000e44956a7264cb97377, type: 3}
-    imageDescription: 
-  - image: {fileID: 21300000, guid: 24f7d1f1d3ee5454d8629df1339f6523, type: 3}
+  - image: {fileID: 21300000, guid: fce090c42f4d6bc449641d589a399b93, type: 3}
     imageDescription: 
   Illustrations:
   - image: {fileID: 21300000, guid: 056862e4186d38a4cb7dede9078e7d7a, type: 3}
-    imageDescription: 
+    imageDescription: "Au c\u0153ur du d\xE9sert , un arbre colossal marque les stigmates
+      de deux impacts de m\xE9t\xE9orites. Bien qu\u2019\xE9ventr\xE9 il abrite d\xE9sormais
+      une for\xEAt luxuriante en hauteur tandis que les alentours, balay\xE9s par
+      le cataclysme, ne conservent que les squelettes pench\xE9s d\u2019une ancienne
+      for\xEAt ."
   - image: {fileID: 21300000, guid: 88d7092d7da800c4b8740c333109a6bb, type: 3}
-    imageDescription: 
+    imageDescription: "Au c\u0153ur du d\xE9sert , un arbre colossal marque les stigmates
+      de deux impacts de m\xE9t\xE9orites. Bien qu\u2019\xE9ventr\xE9 il abrite d\xE9sormais
+      une for\xEAt luxuriante en hauteur tandis que les alentours, balay\xE9s par
+      le cataclysme, ne conservent que les squelettes pench\xE9s d\u2019une ancienne
+      for\xEAt ."
   - image: {fileID: 21300000, guid: d2faaa3a8b911c949a991a25be2c2801, type: 3}
-    imageDescription: 
+    imageDescription: "Au c\u0153ur du d\xE9sert , un arbre colossal marque les stigmates
+      de deux impacts de m\xE9t\xE9orites. Bien qu\u2019\xE9ventr\xE9 il abrite d\xE9sormais
+      une for\xEAt luxuriante en hauteur tandis que les alentours, balay\xE9s par
+      le cataclysme, ne conservent que les squelettes pench\xE9s d\u2019une ancienne
+      for\xEAt ."
   - image: {fileID: 21300000, guid: e65162e51aa74f5479973e5b0e9d885b, type: 3}
-    imageDescription: 
+    imageDescription: "Au c\u0153ur du d\xE9sert , un arbre colossal marque les stigmates
+      de deux impacts de m\xE9t\xE9orites. Bien qu\u2019\xE9ventr\xE9 il abrite d\xE9sormais
+      une for\xEAt luxuriante en hauteur tandis que les alentours, balay\xE9s par
+      le cataclysme, ne conservent que les squelettes pench\xE9s d\u2019une ancienne
+      for\xEAt ."
   currentImages:
-  - image: {fileID: 21300000, guid: 77788ac06857e1e46b42c47553651395, type: 3}
-    imageDescription: qdsqdsqsd
-  - image: {fileID: 21300000, guid: a2127680b4b1df342bd920be780058a3, type: 3}
-    imageDescription: d
+  - image: {fileID: 21300000, guid: 24f7d1f1d3ee5454d8629df1339f6523, type: 3}
+    imageDescription: "Colosse tranquille des \xE9tendues arides, le Dromar parcourt
+      lentement les d\xE9serts de Pangaya \xE0 la recherche de fruits gorg\xE9s de
+      ros\xE9e. Son corps \xE9lanc\xE9, presque fr\xEAle malgr\xE9 sa taille, ne
+      supporte que des charges l\xE9g\xE8res, ce qui en fait un compagnon peu adapt\xE9
+      au transport lourd, mais id\xE9al pour les voyageurs patients."
   - image: {fileID: 21300000, guid: 140f006311f000e44956a7264cb97377, type: 3}
     imageDescription: 
-  - image: {fileID: 21300000, guid: 24f7d1f1d3ee5454d8629df1339f6523, type: 3}
+  - image: {fileID: 21300000, guid: a2127680b4b1df342bd920be780058a3, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: 77788ac06857e1e46b42c47553651395, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: af997e979bf27a64ebf8ee5790a33b4a, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: fce090c42f4d6bc449641d589a399b93, type: 3}
     imageDescription: 
   isResearches: 1

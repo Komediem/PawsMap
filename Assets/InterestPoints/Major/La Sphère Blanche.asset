@@ -23,9 +23,33 @@ MonoBehaviour:
   type: 0
   Researches:
   - image: {fileID: 21300000, guid: d6582ccd54504774bae9aeb0792dc369, type: 3}
-    imageDescription: 
+    imageDescription: "Colosse des banquises, le Tuskarn est un ours massif aux crocs
+      hypertrophi\xE9s. Il utilise sa puissance brute pour briser la glace et acc\xE9der
+      \xE0 des plantes ou animaux gel\xE9s. Il est extr\xEAmement difficile \xE0
+      dompter, mais devient un alli\xE9 inestimable pour survivre dans les r\xE9gions
+      les plus hostiles."
   - image: {fileID: 21300000, guid: db077ea9fa3a9464eb3a0147527c2d2f, type: 3}
+    imageDescription: "Colosse des banquises, le Tuskarn est un ours massif aux crocs
+      hypertrophi\xE9s. Il utilise sa puissance brute pour briser la glace et acc\xE9der
+      \xE0 des plantes ou animaux gel\xE9s. Il est extr\xEAmement difficile \xE0
+      dompter, mais devient un alli\xE9 inestimable pour survivre dans les r\xE9gions
+      les plus hostiles."
+  - image: {fileID: 21300000, guid: 8066c0adc197cf742883dddd6bee3510, type: 3}
     imageDescription: 
-  Illustrations: []
+  - image: {fileID: 21300000, guid: c1012ba1e0456cb4895aeff20fcacbe8, type: 3}
+    imageDescription: 
+  Illustrations:
+  - image: {fileID: 21300000, guid: dd4b503d0ce618b46a9e20c89ab658bc, type: 3}
+    imageDescription: "Isol\xE9 au c\u0153ur des glaces \xE9ternelles, ce lac circulaire
+      est cern\xE9 par des murailles naturelles d\u2019icebergs formant une enceinte
+      parfaite autour d'un m\xE9t\xE9ore azur intacte. Un vent glacial oppressant
+      entrecoup\xE9 de grondements de cr\xE9atures polaires accompagnent le spectacle
+      offert par les aurores bor\xE9ales. "
+  - image: {fileID: 21300000, guid: 431a83f3441d4864d9f6b4a891179430, type: 3}
+    imageDescription: "Isol\xE9 au c\u0153ur des glaces \xE9ternelles, ce lac circulaire
+      est cern\xE9 par des murailles naturelles d\u2019icebergs formant une enceinte
+      parfaite autour d'un m\xE9t\xE9ore azur intacte. Un vent glacial oppressant
+      entrecoup\xE9 de grondements de cr\xE9atures polaires accompagnent le spectacle
+      offert par les aurores bor\xE9ales. "
   currentImages: []
   isResearches: 0
