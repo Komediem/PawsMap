@@ -943,7 +943,7 @@ PrefabInstance:
     - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: interestPointDatas
       value: 
-      objectReference: {fileID: 11400000, guid: a7dab350cbf386041b4f4da9ce92509b, type: 2}
+      objectReference: {fileID: 11400000, guid: de9f610305f8c854c911629927ce03a9, type: 2}
     - target: {fileID: 8642948573127537719, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -1542,7 +1542,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721400060363260612, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_Name
-      value: SQD1 (1)
+      value: CanyonCuivre
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalScale.x
@@ -2488,7 +2488,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721400060363260612, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_Name
-      value: SQD1 (2)
+      value: GrandeArche
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalScale.x
@@ -2627,7 +2627,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721400060363260612, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_Name
-      value: HautsPlateauxBoreales
+      value: BouclierBoreale
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalScale.x
@@ -3107,7 +3107,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721400060363260612, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_Name
-      value: SQD1 (5)
+      value: LacsEscarpes
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalScale.x
@@ -3700,7 +3700,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721400060363260612, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_Name
-      value: SQD1
+      value: PiquesFlottants
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalScale.x
@@ -6056,7 +6056,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721400060363260612, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_Name
-      value: SQD1 (3)
+      value: DunesAssechees
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalScale.x
@@ -6584,7 +6584,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721400060363260612, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_Name
-      value: SQD1 (4)
+      value: MontsVertebres
       objectReference: {fileID: 0}
     - target: {fileID: 6619002726239526867, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_LocalScale.x

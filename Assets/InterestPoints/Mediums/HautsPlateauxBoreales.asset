@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cde9223ed5014459b32ae1934989ab, type: 3}
   m_Name: HautsPlateauxBoreales
   m_EditorClassIdentifier: 
-  title: HAUTS-PLATEAUX BOREALES
-  subtitle: 
+  title: "BOUCLIER BOR\xC9ALE"
+  subtitle: LES HAUTS-PLATEAUX
   climaticCondition: 
   faunaAndFlora: 
   frequentRessources: 
