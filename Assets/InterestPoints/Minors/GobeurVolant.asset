@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16cde9223ed5014459b32ae1934989ab, type: 3}
-  m_Name: SQD
+  m_Name: GobeurVolant
   m_EditorClassIdentifier: 
-  title: "LA VALL\xC9E BRUMEUSE"
-  subtitle: LES GRANDS SOMMETS FENDUS
+  title: LE GOBEUR VOLANT
+  subtitle: "LE D\xC9SERT SILENCIEUX"
   climaticCondition: 
   faunaAndFlora: 
   frequentRessources: 
@@ -23,9 +23,11 @@ MonoBehaviour:
   type: 2
   Researches: []
   Illustrations:
-  - image: {fileID: 21300000, guid: 4f1a6923a08517240908f6b3fc326264, type: 3}
-    imageDescription: "Des b\xEAtes \xE9lanc\xE9es, passives et se d\xE9placent en
-      troupeaux. Certains s'isolent parfois afin de trouver un abri pour la meute."
+  - image: {fileID: 21300000, guid: 2cf48f985c339fe45b879ec535af850d, type: 3}
+    imageDescription: "Ces petits rongeur se nourrissent des \xAB bulbe-soif \xBB
+      pr\xE9sents dans le d\xE9sert. Difficiles \xE0 attraper quand ils s\u2019envolent
+      avec leurs grandes oreilles plum\xE9es, ils offrent un d\xE9licieux repas pour
+      les nomades du d\xE9sert."
   currentImages:
   - image: {fileID: 21300000, guid: 4f1a6923a08517240908f6b3fc326264, type: 3}
     imageDescription: "Des b\xEAtes \xE9lanc\xE9es, passives et se d\xE9placent en
