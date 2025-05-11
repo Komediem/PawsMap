@@ -41,9 +41,17 @@ MonoBehaviour:
       supporte que des charges l\xE9g\xE8res, ce qui en fait un compagnon peu adapt\xE9
       au transport lourd, mais id\xE9al pour les voyageurs patients."
   - image: {fileID: 21300000, guid: 77788ac06857e1e46b42c47553651395, type: 3}
-    imageDescription: 
+    imageDescription: "Ces arbres \xE9corch\xE9s repr\xE9sentent les reliefs du paysage
+      indomptable du d\xE9sert silencieux. Les conditions climatiques difficiles
+      forcent ces troncs d\xE9garnis de feuilles \xE0 rester compacts. H\xF4te de
+      petits insectes et rongeurs comme le gobeur volant, ils maintiennent un \xE9cosyst\xE8me
+      aussi riche qu'impitoyable."
   - image: {fileID: 21300000, guid: af997e979bf27a64ebf8ee5790a33b4a, type: 3}
-    imageDescription: 
+    imageDescription: "L'arbre Tombe, v\xE9n\xE9rable ancien triomphant au sein du
+      d\xE9sert silencieux, est un point de rep\xE8re crucial pour se rep\xE9rer
+      dans ce lieu labyrinthique. Ce tronc ancien, victime de deux m\xE9t\xE9ores,
+      abrite les vestiges d'une for\xEAt rougie luxuriante et d'un \xE9cosyst\xE8me
+      perdu, end\xE9mique de ces bois. "
   - image: {fileID: 21300000, guid: fce090c42f4d6bc449641d589a399b93, type: 3}
     imageDescription: 
   Illustrations:
