@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Le mur du Rohin
   m_EditorClassIdentifier: 
   title: LE MUR DU ROHIN
-  subtitle: 
+  subtitle: "LA FOR\xCAT DU REMPART"
   climaticCondition: 
   faunaAndFlora: 
   frequentRessources: 
@@ -30,5 +30,8 @@ MonoBehaviour:
       pour beaucoup. "
   currentImages:
   - image: {fileID: 21300000, guid: a14b79606a086a7409c8b5c22263b2d5, type: 3}
-    imageDescription: n-word
+    imageDescription: "Impossible de se rendre dans la r\xE9gion polaire de l\u2019Est
+      sans faire face au grand Mur de Rohin. \xC0 son sommet la neige ne fond jamais,
+      rendant son ascension presque impossible et rendant les terres de glace inaccessibles
+      pour beaucoup. "
   isResearches: 0

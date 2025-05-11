@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ReineDesBois
   m_EditorClassIdentifier: 
   title: REINE DES BOIS
-  subtitle: MUR DU ROHIN
+  subtitle: "LA FOR\xCAT DU REMPART  "
   climaticCondition: 
   faunaAndFlora: 
   frequentRessources: 
