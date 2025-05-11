@@ -23,11 +23,20 @@ MonoBehaviour:
   type: 0
   Researches:
   - image: {fileID: 21300000, guid: 9ba1b18478c65d54abb6aabd8879fc3c, type: 3}
-    imageDescription: 
+    imageDescription: "Les blocs de roche tranchants des rives griffes forment de
+      parfaits supports pour les colonies de Grands Becs qui y installent leur nids
+      loin du danger. Les reliefs tortueux servent aux survivants \xE0 s'entra\xEEner
+      \xE0 la conduite de montures volantes. "
   - image: {fileID: 21300000, guid: f1ff8395d2e26df48bf43cbf01a4706d, type: 3}
-    imageDescription: 
+    imageDescription: "Les Laineux-B\xE9liers sont, bien que territoriaux, de tr\xE8s
+      agr\xE9ables compagnons. Certains survivants se passionnent pour ces b\xEAtes
+      amicales, d'autres les chassent pour en garder des troph\xE9es. La laine est
+      souvent utilis\xE9e pour se couvrir dans les terres froides du Nord."
   - image: {fileID: 21300000, guid: 624d9209869b3f747b20550e041c56a4, type: 3}
-    imageDescription: 
+    imageDescription: "Les Grands Becs sont de parfaits oiseaux marins. Capable de
+      flotter sur l'eau, et de planer longuement gr\xE2ce \xE0 ses 4 ailes, il plonge
+      son bec dans l'eau afin de p\xEAcher leurs repas. Tr\xE8s appr\xE9ci\xE9 des
+      survivants pour leur docilit\xE9 et leur curiosit\xE9. "
   Illustrations:
   - image: {fileID: 21300000, guid: 3619147fdb6236744bd6ddf161afc2a5, type: 3}
     imageDescription: "Cette r\xE9gion tire son nom des immenses falaises ac\xE9r\xE9es
@@ -54,6 +63,28 @@ MonoBehaviour:
       ce paysage escarp\xE9 est aussi dangereux qu\u2019envo\xFBtant, d\xE9fiant
       les aventuriers les plus t\xE9m\xE9raires."
   currentImages:
-  - image: {fileID: 21300000, guid: 9ba1b18478c65d54abb6aabd8879fc3c, type: 3}
-    imageDescription: 
-  isResearches: 1
+  - image: {fileID: 21300000, guid: 3619147fdb6236744bd6ddf161afc2a5, type: 3}
+    imageDescription: "Cette r\xE9gion tire son nom des immenses falaises ac\xE9r\xE9es
+      qui \xE9voquent des serres g\xE9antes et des nu\xE9es d\u2019oiseaux qui sillonnent
+      le ciel. Sculpt\xE9 par les vents violents et les impacts de m\xE9t\xE9ores,
+      ce paysage escarp\xE9 est aussi dangereux qu\u2019envo\xFBtant, d\xE9fiant
+      les aventuriers les plus t\xE9m\xE9raires."
+  - image: {fileID: 21300000, guid: 31ab5fa34b74d9e45a4271d1406eaa02, type: 3}
+    imageDescription: "Cette r\xE9gion tire son nom des immenses falaises ac\xE9r\xE9es
+      qui \xE9voquent des serres g\xE9antes et des nu\xE9es d\u2019oiseaux qui sillonnent
+      le ciel. Sculpt\xE9 par les vents violents et les impacts de m\xE9t\xE9ores,
+      ce paysage escarp\xE9 est aussi dangereux qu\u2019envo\xFBtant, d\xE9fiant
+      les aventuriers les plus t\xE9m\xE9raires."
+  - image: {fileID: 21300000, guid: fccf57474fa3a574ebb12070f349965b, type: 3}
+    imageDescription: "Cette r\xE9gion tire son nom des immenses falaises ac\xE9r\xE9es
+      qui \xE9voquent des serres g\xE9antes et des nu\xE9es d\u2019oiseaux qui sillonnent
+      le ciel. Sculpt\xE9 par les vents violents et les impacts de m\xE9t\xE9ores,
+      ce paysage escarp\xE9 est aussi dangereux qu\u2019envo\xFBtant, d\xE9fiant
+      les aventuriers les plus t\xE9m\xE9raires."
+  - image: {fileID: 21300000, guid: c112c37bd9b6b5743b2da63540d5d87a, type: 3}
+    imageDescription: "Cette r\xE9gion tire son nom des immenses falaises ac\xE9r\xE9es
+      qui \xE9voquent des serres g\xE9antes et des nu\xE9es d\u2019oiseaux qui sillonnent
+      le ciel. Sculpt\xE9 par les vents violents et les impacts de m\xE9t\xE9ores,
+      ce paysage escarp\xE9 est aussi dangereux qu\u2019envo\xFBtant, d\xE9fiant
+      les aventuriers les plus t\xE9m\xE9raires."
+  isResearches: 0
