@@ -53,7 +53,11 @@ MonoBehaviour:
       abrite les vestiges d'une for\xEAt rougie luxuriante et d'un \xE9cosyst\xE8me
       perdu, end\xE9mique de ces bois. "
   - image: {fileID: 21300000, guid: fce090c42f4d6bc449641d589a399b93, type: 3}
-    imageDescription: 
+    imageDescription: "L'arbre Tombe, v\xE9n\xE9rable ancien triomphant au sein du
+      d\xE9sert silencieux, est un point de rep\xE8re crucial pour se rep\xE9rer
+      dans ce lieu labyrinthique. Ce tronc ancien, victime de deux m\xE9t\xE9ores,
+      abrite les vestiges d'une for\xEAt rougie luxuriante et d'un \xE9cosyst\xE8me
+      perdu, end\xE9mique de ces bois. "
   Illustrations:
   - image: {fileID: 21300000, guid: 056862e4186d38a4cb7dede9078e7d7a, type: 3}
     imageDescription: "Au coeur du d\xE9sert , un arbre colossal marque les stigmates
