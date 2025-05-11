@@ -6926,7 +6926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloudCenter: {fileID: 1470924860}
-  Speed: 0.2
+  Speed: 1.8
   HidingThreshold: 9
 --- !u!1 &1471556404
 GameObject:
@@ -7197,7 +7197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloudCenter: {fileID: 1561622390}
-  Speed: 0.5
+  Speed: 2.3
   HidingThreshold: 16
 --- !u!1 &1586962363
 GameObject:
@@ -7801,7 +7801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloudCenter: {fileID: 1823622516}
-  Speed: 0.35
+  Speed: 2
   HidingThreshold: 13
 --- !u!1001 &1916160684
 PrefabInstance:
@@ -8159,7 +8159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloudCenter: {fileID: 2141465714}
-  Speed: 1.5
+  Speed: 2.4
   HidingThreshold: 0
 --- !u!212 &2141465716
 SpriteRenderer:

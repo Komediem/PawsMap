@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 public class CloudMovement : MonoBehaviour
 {
 
-    [HideInInspector] public float MinSpeed;
-    [HideInInspector] public float MaxSpeed;
+    public float MinSpeed;
+    public float MaxSpeed;
     [Space]
     [SerializeField] private int MinCloudOpacity;
     [SerializeField] private int MaxCloudOpacity = 255;
