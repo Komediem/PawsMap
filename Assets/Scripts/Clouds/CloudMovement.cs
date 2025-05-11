@@ -55,7 +55,7 @@ public class CloudMovement : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (GameManager.Instance.currentSize < HidingThreshold)
         {

@@ -18,7 +18,7 @@ public class CloudStorm : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         CloudCenter.transform.Rotate(Vector3.forward, Speed);
 
