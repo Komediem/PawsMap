@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [Header("Map")]
     [SerializeField] private SpriteRenderer currentMap;
     [HideInInspector] public float currentSize;
+    [HideInInspector] public float zoomPourcentage;
     [HideInInspector] public float mapBorder;
     #endregion
 
@@ -42,11 +43,14 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool canSlide;
     [HideInInspector] public int currentImage;
     [HideInInspector] public InterestPointDatas currentInterestPoint;
+    [HideInInspector] public InterestPoint currentInterestPointScript;
     [SerializeField] private Button researchButton;
     [SerializeField] private Button illustrationButton;
     [SerializeField] private Sprite backgroundPanelMajor;
     [SerializeField] private Sprite backgroundPanelMedium;
     private bool isOnButton;
+    private float currentAlpha;
+    private float alphaRef;
     #endregion
 
     #region Dots
@@ -241,7 +245,7 @@ public class GameManager : MonoBehaviour
 
     #region Info Panel Utils
 
-    public void OpenInfoPanel(InterestPointDatas interestPointDatasValue)
+    public void OpenInfoPanel(InterestPointDatas interestPointDatasValue, InterestPoint interestPointScript)
     {
         infoPanel.GetComponent<Animator>().SetBool("IsOpen?", true);
         blackBackground.SetActive(true);
@@ -249,8 +253,9 @@ public class GameManager : MonoBehaviour
         infoPanelIsOpen = true;
         imageHolder.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
+        currentInterestPointScript = interestPointScript;
 
-        if(interestPointDatasValue.type == InterestPointType.major)
+        if (interestPointDatasValue.type == InterestPointType.major)
         {
             researchButton.gameObject.SetActive(true);
             illustrationButton.gameObject.SetActive(true);
@@ -438,9 +443,14 @@ public class GameManager : MonoBehaviour
                 researchButton.Select();
             }
         }
+
         else
         {
+            currentInterestPointScript.GetComponent<Animator>().SetBool("IsClicked?", false);
+            currentInterestPointScript.isClicked = false;
+
             currentInterestPoint = null;
+            currentInterestPointScript = null;
             infoPanel.GetComponent<Animator>().SetBool("IsOpen?", false);
             blackBackground.SetActive(false);
             infoPanelIsOpen = false;
@@ -522,25 +532,32 @@ public class GameManager : MonoBehaviour
     {
         float time = 0;
         float speedZoom = 0;
+        currentAlpha = interestPointClicked.GetComponent<SpriteRenderer>().color.a;
         Vector3 speed = Vector3.zero;
-        Color interestPointAlpha = interestPointClicked.GetComponent<SpriteRenderer>().color;
         Vector3 target = interestPointClicked.transform.position;
         target.z = cam.transform.position.z;
+        var interestPointScript = interestPointClicked.GetComponent<InterestPoint>();
 
-        while (Vector3.Distance(cam.transform.position,target) > 0.03f && Mathf.Abs(targetValue - cam.orthographicSize) > 0.05f)
+        print(interestPointClicked);
+
+        while (Vector3.Distance(cam.transform.position,target) > 0.03f)
         {
             cam.transform.position = Vector3.SmoothDamp(cam.transform.position, target, ref speed, duration);
             currentSize = Mathf.SmoothDamp(currentSize, targetValue, ref speedZoom, duration);
-            interestPointAlpha.a = 0;
-            interestPointClicked.GetComponent<SpriteRenderer>().color = interestPointAlpha;
 
+            /*
+            currentAlpha = Mathf.SmoothDamp(currentAlpha, 0f, ref alphaRef, duration);
+            Color interestPointAlpha = interestPointClicked.GetComponent<SpriteRenderer>().color;
+            interestPointAlpha.a = currentAlpha;
+            interestPointClicked.GetComponent<SpriteRenderer>().color = interestPointAlpha;
             print(interestPointClicked.GetComponent<SpriteRenderer>().color);
+            */
             time += Time.deltaTime;
 
             yield return null;
         }
 
-        OpenInfoPanel(interestPointDatasValue);
+        OpenInfoPanel(interestPointDatasValue, interestPointScript);
         currentSize = targetValue;
     }
 

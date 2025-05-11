@@ -18,6 +18,7 @@ public class InterestPoint : MonoBehaviour
     [SerializeField] private float hoveredScalingSpeed;
     private bool isHovered;
     private bool isVisible;
+    [HideInInspector] public bool isClicked;
 
     void Start()
     {
@@ -64,12 +65,15 @@ public class InterestPoint : MonoBehaviour
 
     public void Hovered()
     {
-        //Feedback hovering
-        this.GetComponent<SpriteRenderer>().sprite = interestPointDatas.iconHovered;
+        if(!isClicked)
+        {
+            //Feedback hovering
+            this.GetComponent<SpriteRenderer>().sprite = interestPointDatas.iconHovered;
 
-        //Utils
-        isHovered = true;
-        pointName.SetActive(isVisible);
+            //Utils
+            isHovered = true;
+            pointName.SetActive(isVisible);
+        }
     }
 
     public void ResetImage()
@@ -94,6 +98,10 @@ public class InterestPoint : MonoBehaviour
             else
             {
                 GameManager.Instance.SmoothZoomInterestPoint(this.gameObject, interestPointDatas);
+                this.GetComponent<Animator>().SetBool("IsClicked?", true);
+                isClicked = true;
+
+                ResetImage();
             }
 
         }

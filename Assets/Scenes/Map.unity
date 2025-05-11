@@ -4988,8 +4988,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 339.73, y: -109.28998}
-  m_SizeDelta: {x: 420.53, y: 61.42}
+  m_AnchoredPosition: {x: 377.23, y: -109.28998}
+  m_SizeDelta: {x: 495.53, y: 61.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195799072
 MonoBehaviour:
@@ -5046,11 +5046,11 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -5544,6 +5544,7 @@ MonoBehaviour:
   isIntro: 0
   currentMap: {fileID: 1624959332}
   currentSize: 0
+  zoomPourcentage: 0
   mapBorder: 0.1
   infoPanel: {fileID: 618760493}
   infoTextPanel: {fileID: 1329951982}
@@ -7965,6 +7966,10 @@ PrefabInstance:
       propertyPath: interestPointDatas
       value: 
       objectReference: {fileID: 11400000, guid: a6f02fa0746a7344382b26bbf47b4da5, type: 2}
+    - target: {fileID: 8330287035461685348, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
+      propertyPath: hoveredScalePourcentage
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8642948573127537719, guid: b52ac1baa640bab459c8070c086b1966, type: 3}
       propertyPath: m_FlipX
       value: 0
