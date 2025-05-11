@@ -21,7 +21,9 @@ MonoBehaviour:
   iconBase: {fileID: 21300000, guid: 9b34e47acf1df584e98be0aff77e32bd, type: 3}
   iconHovered: {fileID: 21300000, guid: 5f0e785b496210440801210e9a5b4c60, type: 3}
   type: 0
-  Researches: []
+  Researches:
+  - image: {fileID: 21300000, guid: 8acda324d6e2e4e41b239b68fb618de6, type: 3}
+    imageDescription: 
   Illustrations:
   - image: {fileID: 21300000, guid: c10c23e62c9e2b14f97c19b0e0fffc88, type: 3}
     imageDescription: "L\u2019Oeil de l\u2019Abysse est le point d\u2019impact originel,

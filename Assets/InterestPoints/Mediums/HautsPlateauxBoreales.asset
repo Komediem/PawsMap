@@ -24,7 +24,10 @@ MonoBehaviour:
   Researches: []
   Illustrations:
   - image: {fileID: 21300000, guid: d5ff43f0ad30d2e458a5c629676ebeee, type: 3}
-    imageDescription: n-word
+    imageDescription: "Cette immense cha\xEEne de montagne en forme de mur emp\xEAche
+      d\u2019acc\xE9der au plateau donnant sur les terres polaires les plus recul\xE9es
+      de Pangaya. Encore aujourd\u2019hui les m\xE9t\xE9ores pleuvent sur cette r\xE9gion
+      ; mais le bouclier, lui, ne bouge pas."
   currentImages:
   - image: {fileID: 21300000, guid: d5ff43f0ad30d2e458a5c629676ebeee, type: 3}
     imageDescription: n-word

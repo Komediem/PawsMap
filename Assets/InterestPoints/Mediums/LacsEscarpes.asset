@@ -24,7 +24,11 @@ MonoBehaviour:
   Researches: []
   Illustrations:
   - image: {fileID: 21300000, guid: 7d699969a364a9841b2feb08ee6d97ce, type: 3}
-    imageDescription: n-word
+    imageDescription: "Cette r\xE9gion difficilement praticable est, contrairement
+      \xE0 ce qu\u2019on peut penser, fortement emprunt\xE9e par les voyageurs ;
+      car seul moyen de contourner le mur du Rohin pour acc\xE9der aux terres de
+      glace. Ces lacs, suspendus dans la montagne, offrent une vue splendide sur
+      un oc\xE9an sauvage et inaccessible..."
   currentImages:
   - image: {fileID: 21300000, guid: 7d699969a364a9841b2feb08ee6d97ce, type: 3}
     imageDescription: n-word

@@ -24,7 +24,11 @@ MonoBehaviour:
   Researches: []
   Illustrations:
   - image: {fileID: 21300000, guid: 8e2f0f29c8ca85f499ae2fc8cb5a4449, type: 3}
-    imageDescription: n-word
+    imageDescription: "La Grande Arche d\xE9chue \xE9tait autrefois un pont naturel
+      permettant de passer au-dessus de la vall\xE9e des crocs, mais une m\xE9t\xE9orite
+      a bris\xE9 cette merveilleuse structure de pierre si pratique pour les nomades
+      du monde. D\xE9sormais, la plupart contourne cette r\xE9gion et les plus t\xE9m\xE9raires
+      s\u2019engouffrent dans cette derni\xE8re."
   currentImages:
   - image: {fileID: 21300000, guid: 39240aead798fc44fb6c3ae160fd73c3, type: 3}
     imageDescription: n-word

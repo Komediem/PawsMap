@@ -23,9 +23,14 @@ MonoBehaviour:
   type: 1
   Researches: []
   Illustrations:
-  - image: {fileID: 21300000, guid: 39240aead798fc44fb6c3ae160fd73c3, type: 3}
-    imageDescription: n-word
+  - image: {fileID: 21300000, guid: 6a0f28f871619ae44b7c7855fa5fa5cc, type: 3}
+    imageDescription: "Cette vall\xE9e entre les montagnes est le passage obligatoire
+      donnant sur le d\xE9troit des Grands Gels qui, \xE0 certains moments de l\u2019ann\xE9e,
+      g\xE8le et permet la migration des bisons des terres froides de l\u2019Ouest
+      jusqu\u2019aux Steppes Blanches. Cette r\xE9gion plus accessible que les Steppes
+      permet aux nomade de tenter l\u2019apprivoisement de ses puissantes montures
+      dans des conditions correctes."
   currentImages:
-  - image: {fileID: 21300000, guid: 193e1491016f22544bce5f38936da5c8, type: 3}
+  - image: {fileID: 21300000, guid: 6a0f28f871619ae44b7c7855fa5fa5cc, type: 3}
     imageDescription: n-word
   isResearches: 0

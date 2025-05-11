@@ -24,7 +24,10 @@ MonoBehaviour:
   Researches: []
   Illustrations:
   - image: {fileID: 21300000, guid: 2daeb668a49d1ef45b2079a6753936bc, type: 3}
-    imageDescription: n-word
+    imageDescription: "Ces immenses arches de pierre plongeant jusqu\u2019\xE0 la
+      mer se sont form\xE9s apr\xE8s les violentes activit\xE9s sismiques caus\xE9es
+      par les m\xE9t\xE9orites tomb\xE9es sur la r\xE9gion Makora\xEF.  Le sommet
+      de ces arches donne une vue imprenable sur le Lagon \xC9meraude."
   currentImages:
   - image: {fileID: 21300000, guid: 39240aead798fc44fb6c3ae160fd73c3, type: 3}
     imageDescription: n-word

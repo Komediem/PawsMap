@@ -24,7 +24,10 @@ MonoBehaviour:
   Researches: []
   Illustrations:
   - image: {fileID: 21300000, guid: 34f7eec787fc8204f9b78f40be3817f3, type: 3}
-    imageDescription: n-word
+    imageDescription: "Les m\xE9t\xE9orites azur sont souvent synonyme de destruction\u2026
+      Mais aussi de renouveau. Ici, comme pour l\u2019arbre tombe, les impacts de
+      ces derni\xE8res donne vie \xE0 des arbres \xE0 feuilles rouges, se fondant
+      parfaitement dans les couleurs ocre des immenses bloc rocheux du canyon cuivr\xE9."
   currentImages:
   - image: {fileID: 21300000, guid: 39240aead798fc44fb6c3ae160fd73c3, type: 3}
     imageDescription: n-word

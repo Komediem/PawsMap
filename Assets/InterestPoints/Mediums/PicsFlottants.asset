@@ -24,7 +24,11 @@ MonoBehaviour:
   Researches: []
   Illustrations:
   - image: {fileID: 21300000, guid: a0313da8f7626714aafd9c9dde224f8f, type: 3}
-    imageDescription: n-word
+    imageDescription: "Les Pics Flottants se situent tellement haut qu\u2019ils d\xE9passent
+      les nuages. Il y fait si froid que l\u2019on peut m\xEAme y trouver des fleurs
+      de givre, normalement end\xE9mique des r\xE9gions polaires... Soyez donc accroch\xE9s
+      \xE0 vos montures car grimper l\xE0-haut est plus p\xE9rilleux qu\u2019on le
+      pense. "
   currentImages:
   - image: {fileID: 21300000, guid: a0313da8f7626714aafd9c9dde224f8f, type: 3}
     imageDescription: n-word
