@@ -34,24 +34,40 @@ MonoBehaviour:
       de puissants cristaux azur peuvent esp\xE9rer le dompter. "
   Illustrations:
   - image: {fileID: 21300000, guid: 0b322f41f4c96a54e93c954177ef6bb9, type: 3}
-    imageDescription: "Au c\u0153ur de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
+    imageDescription: "Au centre de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
       entre d\u2019imposantes arches de pierre v\xE9g\xE9talis\xE9es et des \xEEles
       flottantes baign\xE9es d\u2019eaux turquoise. Un fragment de m\xE9t\xE9orite
       azur repose au centre, diffusant une lumi\xE8re bleut\xE9e. Le lagon abrite
       une faune marine vari\xE9e, entre bancs color\xE9s et cr\xE9atures massives. "
   - image: {fileID: 21300000, guid: aaaf4a1b310059549a71838d5eebc637, type: 3}
-    imageDescription: "Au c\u0153ur de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
+    imageDescription: "Au centre de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
       entre d\u2019imposantes arches de pierre v\xE9g\xE9talis\xE9es et des \xEEles
       flottantes baign\xE9es d\u2019eaux turquoise. Un fragment de m\xE9t\xE9orite
       azur repose au centre, diffusant une lumi\xE8re bleut\xE9e. Le lagon abrite
       une faune marine vari\xE9e, entre bancs color\xE9s et cr\xE9atures massives. "
   - image: {fileID: 21300000, guid: 028568e712d2e9947a09a1ce4dd468e2, type: 3}
-    imageDescription: "Au c\u0153ur de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
+    imageDescription: "Au centre de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
       entre d\u2019imposantes arches de pierre v\xE9g\xE9talis\xE9es et des \xEEles
       flottantes baign\xE9es d\u2019eaux turquoise. Un fragment de m\xE9t\xE9orite
       azur repose au centre, diffusant une lumi\xE8re bleut\xE9e. Le lagon abrite
       une faune marine vari\xE9e, entre bancs color\xE9s et cr\xE9atures massives. "
   currentImages:
   - image: {fileID: 21300000, guid: 0b322f41f4c96a54e93c954177ef6bb9, type: 3}
-    imageDescription: 
+    imageDescription: "Au centre de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
+      entre d\u2019imposantes arches de pierre v\xE9g\xE9talis\xE9es et des \xEEles
+      flottantes baign\xE9es d\u2019eaux turquoise. Un fragment de m\xE9t\xE9orite
+      azur repose au centre, diffusant une lumi\xE8re bleut\xE9e. Le lagon abrite
+      une faune marine vari\xE9e, entre bancs color\xE9s et cr\xE9atures massives. "
+  - image: {fileID: 21300000, guid: aaaf4a1b310059549a71838d5eebc637, type: 3}
+    imageDescription: "Au centre de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
+      entre d\u2019imposantes arches de pierre v\xE9g\xE9talis\xE9es et des \xEEles
+      flottantes baign\xE9es d\u2019eaux turquoise. Un fragment de m\xE9t\xE9orite
+      azur repose au centre, diffusant une lumi\xE8re bleut\xE9e. Le lagon abrite
+      une faune marine vari\xE9e, entre bancs color\xE9s et cr\xE9atures massives. "
+  - image: {fileID: 21300000, guid: 028568e712d2e9947a09a1ce4dd468e2, type: 3}
+    imageDescription: "Au centre de l\u2019archipel Makora\xEF, le lagon s\u2019\xE9tend
+      entre d\u2019imposantes arches de pierre v\xE9g\xE9talis\xE9es et des \xEEles
+      flottantes baign\xE9es d\u2019eaux turquoise. Un fragment de m\xE9t\xE9orite
+      azur repose au centre, diffusant une lumi\xE8re bleut\xE9e. Le lagon abrite
+      une faune marine vari\xE9e, entre bancs color\xE9s et cr\xE9atures massives. "
   isResearches: 0

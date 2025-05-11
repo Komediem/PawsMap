@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cde9223ed5014459b32ae1934989ab, type: 3}
+  m_Name: FleurDeGivre
+  m_EditorClassIdentifier: 
+  title: FLEUR DE GIVRE
+  subtitle: LES TERRES DE GLACE
+  climaticCondition: 
+  faunaAndFlora: 
+  frequentRessources: 
+  dangerosity: 
+  iconBase: {fileID: 21300000, guid: 0bb00f2cf6fc84f42a1b290318bf6f11, type: 3}
+  iconHovered: {fileID: 21300000, guid: 126a348595735a74f827d59d1f002683, type: 3}
+  type: 2
+  Researches: []
+  Illustrations:
+  - image: {fileID: 21300000, guid: 60b4af9e9fae96048ba8b96812267e51, type: 3}
+    imageDescription: "Cette petite fleur extr\xEAmement robuste \xE0 la particularit\xE9
+      de r\xE9ussir \xE0 pousser dans les r\xE9gions polaires les plus extr\xEAmes
+      et les sommets les plus hauts. Sa tige, faite d\u2019un bois sombre tr\xE8s
+      solide, permet de construire des manches d\u2019outils durable. Elle produit
+      des graines dont les extraordinaires propri\xE9t\xE9s m\xE9dicales offrent
+      une bonne r\xE9sistance au froid. Pourtant rare et difficile \xE0 obtenir,
+      tous la convoite. "
+  currentImages:
+  - image: {fileID: 21300000, guid: b38c23dbdd7dcc04c84db7730a0e5e2c, type: 3}
+    imageDescription: "Cette plante du d\xE9sert a la particularit\xE9 d\u2019absorber
+      l\u2019humidit\xE9 de la fra\xEEcheur de la nuit et de la ros\xE9e du matin
+      ; \xE9tant donc une des seules source d\u2019eau du d\xE9sert. Cette plante
+      peut pousser sur le sable, mais pr\xE9f\xE8re s\u2019agripper aux arbres morts
+      dans la r\xE9gion de l\u2019arbre tombe. Les animaux la mange enti\xE8re mais
+      pour les aventuriers il est conseill\xE9 d\u2019extraire l\u2019eau et de cuire
+      le bulbe."
+  isResearches: 0

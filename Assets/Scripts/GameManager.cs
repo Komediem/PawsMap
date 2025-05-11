@@ -538,20 +538,11 @@ public class GameManager : MonoBehaviour
         target.z = cam.transform.position.z;
         var interestPointScript = interestPointClicked.GetComponent<InterestPoint>();
 
-        print(interestPointClicked);
-
         while (Vector3.Distance(cam.transform.position,target) > 0.03f)
         {
             cam.transform.position = Vector3.SmoothDamp(cam.transform.position, target, ref speed, duration);
             currentSize = Mathf.SmoothDamp(currentSize, targetValue, ref speedZoom, duration);
 
-            /*
-            currentAlpha = Mathf.SmoothDamp(currentAlpha, 0f, ref alphaRef, duration);
-            Color interestPointAlpha = interestPointClicked.GetComponent<SpriteRenderer>().color;
-            interestPointAlpha.a = currentAlpha;
-            interestPointClicked.GetComponent<SpriteRenderer>().color = interestPointAlpha;
-            print(interestPointClicked.GetComponent<SpriteRenderer>().color);
-            */
             time += Time.deltaTime;
 
             yield return null;
