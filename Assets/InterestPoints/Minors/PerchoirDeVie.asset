@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cde9223ed5014459b32ae1934989ab, type: 3}
+  m_Name: PerchoirDeVie
+  m_EditorClassIdentifier: 
+  title: 'PERCHOIR DE VIE '
+  subtitle: "L\u2019ARCHIPEL MAKORA\xCF "
+  climaticCondition: 
+  faunaAndFlora: 
+  frequentRessources: 
+  dangerosity: 
+  iconBase: {fileID: 21300000, guid: 0bb00f2cf6fc84f42a1b290318bf6f11, type: 3}
+  iconHovered: {fileID: 21300000, guid: 126a348595735a74f827d59d1f002683, type: 3}
+  type: 2
+  Researches: []
+  Illustrations:
+  - image: {fileID: 21300000, guid: 48084f22b9029d8418af7d81149b4915, type: 3}
+    imageDescription: "Cette plante semi-aquatique est l'abri parfait pour toutes
+      les petites cr\xE9atures de l'archipel.  Ayant la particularit\xE9 de pousser
+      en eau peu profondes, \xE9mergeant de la surface sur quelques m\xE8tres, elle
+      prot\xE8ge ses habitants des pr\xE9dateurs terrestres et marins.  N'\xE9tant
+      pas comestible et conservant seulement l'eau douce de la pluie, cette plante
+      a \xE9t\xE9 fa\xE7onn\xE9e par le temps pour \xEAtre un Havre de paix."
+  currentImages:
+  - image: {fileID: 21300000, guid: e84282851a990154ab216b66eb588c0b, type: 3}
+    imageDescription: "Ce majestueux cervid\xE9 se trouve au pied du grand mur du
+      Rohin, se nourrissant des sapins de la for\xEAt. Cette immense cr\xE9ature
+      est extr\xEAmement rapide et, une fois bien \xE9quip\xE9e, elle peut \xEAtre
+      une monture redoutable."
+  isResearches: 0
