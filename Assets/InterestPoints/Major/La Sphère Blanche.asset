@@ -35,9 +35,16 @@ MonoBehaviour:
       dompter, mais devient un alli\xE9 inestimable pour survivre dans les r\xE9gions
       les plus hostiles."
   - image: {fileID: 21300000, guid: 8066c0adc197cf742883dddd6bee3510, type: 3}
-    imageDescription: 
+    imageDescription: "Les m\xE9t\xE9ores, seuls sources de r\xE9colte d'Azur, forment
+      des objectifs constants pour les survivants du monde. Leur \xE9nergie, aussi
+      convoit\xE9e que myst\xE9rieuse, engendre parfois des conflits entre factions
+      et survivants, attirent des b\xEAtes et alt\xE8re l'environnement. Jusqu'o\xF9
+      seriez-vous pr\xEAt \xE0 aller pour en collecter ?"
   - image: {fileID: 21300000, guid: c1012ba1e0456cb4895aeff20fcacbe8, type: 3}
-    imageDescription: 
+    imageDescription: "Les grands blocs de glace flottants, alt\xE9r\xE9s par le
+      m\xE9t\xE9ore Azur, refl\xE8tent la danse des aurores bor\xE9ales. De tous
+      les angles, la grandeur de ce monument naturel ne peut qu'\xE9merveiller les
+      voyageurs, m\xEAme les plus aust\xE8res."
   Illustrations:
   - image: {fileID: 21300000, guid: dd4b503d0ce618b46a9e20c89ab658bc, type: 3}
     imageDescription: "Isol\xE9 au c\u0153ur des glaces \xE9ternelles, ce lac circulaire
@@ -52,16 +59,20 @@ MonoBehaviour:
       entrecoup\xE9 de grondements de cr\xE9atures polaires accompagnent le spectacle
       offert par les aurores bor\xE9ales. "
   currentImages:
-  - image: {fileID: 21300000, guid: dd4b503d0ce618b46a9e20c89ab658bc, type: 3}
-    imageDescription: "Isol\xE9 au c\u0153ur des glaces \xE9ternelles, ce lac circulaire
-      est cern\xE9 par des murailles naturelles d\u2019icebergs formant une enceinte
-      parfaite autour d'un m\xE9t\xE9ore azur intacte. Un vent glacial oppressant
-      entrecoup\xE9 de grondements de cr\xE9atures polaires accompagnent le spectacle
-      offert par les aurores bor\xE9ales. "
-  - image: {fileID: 21300000, guid: 431a83f3441d4864d9f6b4a891179430, type: 3}
-    imageDescription: "Isol\xE9 au c\u0153ur des glaces \xE9ternelles, ce lac circulaire
-      est cern\xE9 par des murailles naturelles d\u2019icebergs formant une enceinte
-      parfaite autour d'un m\xE9t\xE9ore azur intacte. Un vent glacial oppressant
-      entrecoup\xE9 de grondements de cr\xE9atures polaires accompagnent le spectacle
-      offert par les aurores bor\xE9ales. "
-  isResearches: 0
+  - image: {fileID: 21300000, guid: d6582ccd54504774bae9aeb0792dc369, type: 3}
+    imageDescription: "Colosse des banquises, le Tuskarn est un ours massif aux crocs
+      hypertrophi\xE9s. Il utilise sa puissance brute pour briser la glace et acc\xE9der
+      \xE0 des plantes ou animaux gel\xE9s. Il est extr\xEAmement difficile \xE0
+      dompter, mais devient un alli\xE9 inestimable pour survivre dans les r\xE9gions
+      les plus hostiles."
+  - image: {fileID: 21300000, guid: db077ea9fa3a9464eb3a0147527c2d2f, type: 3}
+    imageDescription: "Colosse des banquises, le Tuskarn est un ours massif aux crocs
+      hypertrophi\xE9s. Il utilise sa puissance brute pour briser la glace et acc\xE9der
+      \xE0 des plantes ou animaux gel\xE9s. Il est extr\xEAmement difficile \xE0
+      dompter, mais devient un alli\xE9 inestimable pour survivre dans les r\xE9gions
+      les plus hostiles."
+  - image: {fileID: 21300000, guid: 8066c0adc197cf742883dddd6bee3510, type: 3}
+    imageDescription: 
+  - image: {fileID: 21300000, guid: c1012ba1e0456cb4895aeff20fcacbe8, type: 3}
+    imageDescription: 
+  isResearches: 1
