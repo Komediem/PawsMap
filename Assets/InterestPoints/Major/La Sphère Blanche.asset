@@ -51,5 +51,17 @@ MonoBehaviour:
       parfaite autour d'un m\xE9t\xE9ore azur intacte. Un vent glacial oppressant
       entrecoup\xE9 de grondements de cr\xE9atures polaires accompagnent le spectacle
       offert par les aurores bor\xE9ales. "
-  currentImages: []
+  currentImages:
+  - image: {fileID: 21300000, guid: dd4b503d0ce618b46a9e20c89ab658bc, type: 3}
+    imageDescription: "Isol\xE9 au c\u0153ur des glaces \xE9ternelles, ce lac circulaire
+      est cern\xE9 par des murailles naturelles d\u2019icebergs formant une enceinte
+      parfaite autour d'un m\xE9t\xE9ore azur intacte. Un vent glacial oppressant
+      entrecoup\xE9 de grondements de cr\xE9atures polaires accompagnent le spectacle
+      offert par les aurores bor\xE9ales. "
+  - image: {fileID: 21300000, guid: 431a83f3441d4864d9f6b4a891179430, type: 3}
+    imageDescription: "Isol\xE9 au c\u0153ur des glaces \xE9ternelles, ce lac circulaire
+      est cern\xE9 par des murailles naturelles d\u2019icebergs formant une enceinte
+      parfaite autour d'un m\xE9t\xE9ore azur intacte. Un vent glacial oppressant
+      entrecoup\xE9 de grondements de cr\xE9atures polaires accompagnent le spectacle
+      offert par les aurores bor\xE9ales. "
   isResearches: 0

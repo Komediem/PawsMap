@@ -18,8 +18,8 @@ MonoBehaviour:
   faunaAndFlora: 
   frequentRessources: 
   dangerosity: 
-  iconBase: {fileID: 21300000, guid: ce35a0b4dd5bb1a4c8147ed82fef19d1, type: 3}
-  iconHovered: {fileID: 21300000, guid: b0d8a661488459241a4d57913adbb427, type: 3}
+  iconBase: {fileID: 21300000, guid: 0bb00f2cf6fc84f42a1b290318bf6f11, type: 3}
+  iconHovered: {fileID: 21300000, guid: 126a348595735a74f827d59d1f002683, type: 3}
   type: 2
   Researches: []
   Illustrations:
@@ -32,7 +32,12 @@ MonoBehaviour:
       pour les aventuriers il est conseill\xE9 d\u2019extraire l\u2019eau et de cuire
       le bulbe."
   currentImages:
-  - image: {fileID: 21300000, guid: 4f1a6923a08517240908f6b3fc326264, type: 3}
-    imageDescription: "Des b\xEAtes \xE9lanc\xE9es, passives et se d\xE9placent en
-      troupeaux. Certains s'isolent parfois afin de trouver un abri pour la meute."
+  - image: {fileID: 21300000, guid: b38c23dbdd7dcc04c84db7730a0e5e2c, type: 3}
+    imageDescription: "Cette plante du d\xE9sert a la particularit\xE9 d\u2019absorber
+      l\u2019humidit\xE9 de la fra\xEEcheur de la nuit et de la ros\xE9e du matin
+      ; \xE9tant donc une des seules source d\u2019eau du d\xE9sert. Cette plante
+      peut pousser sur le sable, mais pr\xE9f\xE8re s\u2019agripper aux arbres morts
+      dans la r\xE9gion de l\u2019arbre tombe. Les animaux la mange enti\xE8re mais
+      pour les aventuriers il est conseill\xE9 d\u2019extraire l\u2019eau et de cuire
+      le bulbe."
   isResearches: 0

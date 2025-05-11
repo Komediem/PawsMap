@@ -18,8 +18,8 @@ MonoBehaviour:
   faunaAndFlora: 
   frequentRessources: 
   dangerosity: 
-  iconBase: {fileID: 21300000, guid: ce35a0b4dd5bb1a4c8147ed82fef19d1, type: 3}
-  iconHovered: {fileID: 21300000, guid: b0d8a661488459241a4d57913adbb427, type: 3}
+  iconBase: {fileID: 21300000, guid: a5fab4cfac66b8a46957b62216c213dc, type: 3}
+  iconHovered: {fileID: 21300000, guid: 02945a5aa9156384b8fe4814cb7395a6, type: 3}
   type: 2
   Researches: []
   Illustrations:
@@ -29,7 +29,9 @@ MonoBehaviour:
       avec leurs grandes oreilles plum\xE9es, ils offrent un d\xE9licieux repas pour
       les nomades du d\xE9sert."
   currentImages:
-  - image: {fileID: 21300000, guid: 4f1a6923a08517240908f6b3fc326264, type: 3}
-    imageDescription: "Des b\xEAtes \xE9lanc\xE9es, passives et se d\xE9placent en
-      troupeaux. Certains s'isolent parfois afin de trouver un abri pour la meute."
+  - image: {fileID: 21300000, guid: 2cf48f985c339fe45b879ec535af850d, type: 3}
+    imageDescription: "Ces petits rongeur se nourrissent des \xAB bulbe-soif \xBB
+      pr\xE9sents dans le d\xE9sert. Difficiles \xE0 attraper quand ils s\u2019envolent
+      avec leurs grandes oreilles plum\xE9es, ils offrent un d\xE9licieux repas pour
+      les nomades du d\xE9sert."
   isResearches: 0
